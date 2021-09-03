@@ -1,7 +1,8 @@
 <template>
   <v-app>
+    <NavBar />
     <v-main>
-      <v-sheet color="razzmatazz" height="100%">
+      <v-sheet color="mardiGras" height="100%">
         <router-view />
       </v-sheet>
     </v-main>
@@ -9,8 +10,10 @@
 </template>
 
 <script>
+  import NavBar from "../components/navigation/NavBar.vue";
   export default {
     name: "MainView",
+    components: { NavBar },
   };
 </script>
 
