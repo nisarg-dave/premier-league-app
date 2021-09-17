@@ -1,5 +1,10 @@
 <template>
-  <div class="flex-grow-1"><Table /></div>
+  <div>
+    <div class="d-flex justify-space-around">
+      <h1 class="white--text">Standings</h1>
+    </div>
+    <div class="flex-grow-1"><Table /></div>
+  </div>
 </template>
 
 <script>
