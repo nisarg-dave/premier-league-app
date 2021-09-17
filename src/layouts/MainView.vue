@@ -2,7 +2,7 @@
   <v-app>
     <NavBar />
     <v-main>
-      <v-sheet color="mardiGras" height="100%">
+      <v-sheet color="mardiGras" height="100%" class="pa-4">
         <router-view />
       </v-sheet>
     </v-main>
