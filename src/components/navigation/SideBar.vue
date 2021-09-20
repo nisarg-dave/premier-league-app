@@ -1,13 +1,6 @@
 <template>
-  <v-navigation-drawer
-    v-model="showSideBar"
-    app
-    floating
-    mini-variant
-    color="springGreen"
-    mini-variant-width="160"
-  >
-    <v-list-item class="mt-1">
+  <v-navigation-drawer v-model="showSideBar" app floating color="springGreen">
+    <v-list-item class="mt-1 ml-13 d-flex justify-space-around">
       <router-link to="/">
         <v-img
           src="https://media.api-sports.io/football/leagues/39.png"
@@ -19,12 +12,21 @@
       </router-link>
     </v-list-item>
     <v-list>
-      <router-link style="text-decoration: none" :to="{ name: 'standings' }">
-        <v-list-item v-for="item in items" :key="item.title" link>
-          <v-icon color="black">{{ item.icon }}</v-icon>
-          <v-list-item-title>{{ item.title }}</v-list-item-title>
+      <v-divider color="mardiGras" />
+      <router-link style="text-decoration: none" :to="{ name: 'home' }">
+        <v-list-item link>
+          <v-icon color="black" class="ml-2">mdi-home</v-icon>
+          <v-list-item-title class="ml-8 mt-2">Home</v-list-item-title>
         </v-list-item>
       </router-link>
+      <v-divider color="mardiGras" />
+      <router-link style="text-decoration: none" :to="{ name: 'standings' }">
+        <v-list-item link>
+          <v-icon color="black" class="ml-2">mdi-podium-gold</v-icon>
+          <v-list-item-title class="ml-8 mt-2">Standings</v-list-item-title>
+        </v-list-item>
+      </router-link>
+      <v-divider color="mardiGras" />
     </v-list>
     <!-- <v-col class="nav-buttons-wrapper mt-2">
           <v-btn
@@ -54,11 +56,6 @@
       value: Boolean,
     },
     name: "SideBar",
-    data() {
-      return {
-        items: [{ icon: "mdi-podium-gold", title: "Standings" }],
-      };
-    },
     computed: {
       showSideBar: {
         get() {
