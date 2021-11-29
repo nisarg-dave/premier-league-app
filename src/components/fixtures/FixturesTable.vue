@@ -6,6 +6,7 @@
           <tr>
             <th class="text-center">Date</th>
             <th class="text-left">Home Team</th>
+            <th class="text-center" />
             <th class="text-left">Away Team</th>
             <th class="text-center">Venue</th>
           </tr>
@@ -16,6 +17,9 @@
             <td>
               <v-avatar size="36"><img :src="item.teams.home.logo" /></v-avatar>
               {{ item.teams.home.name }}
+            </td>
+            <td>
+              {{ item.score.fulltime.home }}:{{ item.score.fulltime.away }}
             </td>
             <td>
               <v-avatar size="36"><img :src="item.teams.away.logo" /></v-avatar>
