@@ -13,7 +13,15 @@
         </thead>
         <tbody>
           <tr v-for="item in fixtures" :key="item.fixture.id">
-            <td class="text-center">{{ item.fixture.date }}</td>
+            <td class="text-center">
+              {{
+                item.fixture.date
+                  .substring(0, 10)
+                  .split("-")
+                  .reverse()
+                  .join("/")
+              }}
+            </td>
             <td>
               <v-avatar size="36"><img :src="item.teams.home.logo" /></v-avatar>
               {{ item.teams.home.name }}
