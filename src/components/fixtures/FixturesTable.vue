@@ -18,9 +18,10 @@
               <v-avatar size="36"><img :src="item.teams.home.logo" /></v-avatar>
               {{ item.teams.home.name }}
             </td>
-            <td>
+            <td v-if="item.fixture.status.long === 'Match Finished'">
               {{ item.score.fulltime.home }}:{{ item.score.fulltime.away }}
             </td>
+            <td v-else />
             <td>
               <v-avatar size="36"><img :src="item.teams.away.logo" /></v-avatar>
               {{ item.teams.away.name }}
