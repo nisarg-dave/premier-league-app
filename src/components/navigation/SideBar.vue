@@ -20,6 +20,13 @@
         </v-list-item>
       </router-link>
       <v-divider color="mardiGras" />
+      <router-link style="text-decoration: none" :to="{ name: 'fixtures' }">
+        <v-list-item link>
+          <v-icon color="black" class="ml-2">mdi-calendar-arrow-right</v-icon>
+          <v-list-item-title class="ml-8 mt-2">Fixtures</v-list-item-title>
+        </v-list-item>
+      </router-link>
+      <v-divider color="mardiGras" />
       <router-link style="text-decoration: none" :to="{ name: 'standings' }">
         <v-list-item link>
           <v-icon color="black" class="ml-2">mdi-podium-gold</v-icon>
