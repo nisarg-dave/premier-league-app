@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Standings from "../views/Standings.vue";
 import Fixtures from "../views/Fixtures.vue";
+import Statistics from "../views/Statistics.vue"
 
 Vue.use(VueRouter);
 
@@ -27,6 +28,11 @@ const routes = [
         path: "/fixtures",
         name: "fixtures",
         component: Fixtures,
+      },
+      {
+        path: "/statistics",
+        name: "statistics",
+        component: Statistics,
       }
     ],
   },
