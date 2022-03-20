@@ -9,6 +9,7 @@
             <th class="text-center" />
             <th class="text-left">Away Team</th>
             <th class="text-center">Venue</th>
+            <th />
           </tr>
         </thead>
         <tbody>
@@ -35,6 +36,11 @@
               {{ item.teams.away.name }}
             </td>
             <td class="text-center">{{ item.fixture.venue.name }}</td>
+            <td>
+              <v-btn icon class="mt-2" @click="handleClick(item.fixture.id)">
+                <v-icon> mdi-dots-horizontal-circle </v-icon>
+              </v-btn>
+            </td>
           </tr>
         </tbody>
       </v-simple-table>
@@ -56,9 +62,11 @@ export default {
     };
   },
   methods: {
-    dateConverter(d) {
-      const dateArr = d.split("/");
-      return dateArr[2] + "-" + dateArr[1] + "-" + dateArr[0];
+    handleClick(fixtureId) {
+      this.$router.push({
+        name: "statistics",
+        params: { fixtureId },
+      });
     },
   },
   async created() {

@@ -33,7 +33,6 @@ export default {
           },
         }
       );
-      console.log(data.response);
       this.rounds = [...data.response];
     } catch (e) {
       this.errors.push(e);
@@ -41,7 +40,6 @@ export default {
   },
   methods: {
     submitRound() {
-      console.log(this.selectedRound);
       this.$emit("selectedRound", this.selectedRound);
     },
   },
