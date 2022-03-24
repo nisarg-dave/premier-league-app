@@ -1,0 +1,25 @@
+name: Backend-Javascript-Linting
+on:
+  pull_request:
+    types: ["opened","synchronize","reopened","edited"]
+    paths:
+      - "server/**"
+  workflow_dispatch:
+
+jobs:
+  backend-javascript-linting-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install Dependencies
+        uses: bahmutov/npm-install@v1
+        with:
+          install-command: yarn --frozen-lockfile --silent
+          working-directory: server
+      - name: Lint Backend
+        run: yarn lint
+        working-directory: server
+      
+
+
