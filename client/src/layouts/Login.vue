@@ -53,11 +53,25 @@
                     :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
                     @click:append="showPassword = !showPassword"
                   />
+                  <v-checkbox
+                    v-model="checkbox"
+                    required
+                    color="black"
+                    label="Not registered yet?"
+                  />
                   <div class="d-flex justify-space-between">
                     <v-btn color="error" class="black--text" @click="clear"
                       >Clear</v-btn
                     >
-                    <v-btn color="springGreen" @click="submit">Submit</v-btn>
+                    <v-btn
+                      v-if="checkbox"
+                      color="springGreen"
+                      @click="handleSubmit"
+                      >Sign Up</v-btn
+                    >
+                    <v-btn v-else color="springGreen" @click="handleSubmit"
+                      >Log In</v-btn
+                    >
                   </div>
                 </v-form>
               </v-card>
@@ -76,6 +90,7 @@ export default {
     return {
       user: true,
       showPassword: false,
+      checkbox: false,
       userName: "",
       email: "",
       password: "",
@@ -101,7 +116,7 @@ export default {
       this.email = "";
       this.password = "";
     },
-    submit() {
+    handleSubmit() {
       if (this.user) {
         this.$router.push("/");
       }
