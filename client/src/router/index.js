@@ -3,11 +3,17 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Standings from "../views/Standings.vue";
 import Fixtures from "../views/Fixtures.vue";
-import Statistics from "../views/Statistics.vue"
+import Statistics from "../views/Statistics.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
+  {
+    path: "/login",
+    name: "Login",
+    component: () =>
+      import(/* webpackChunkName: "Home" */ "../layouts/Login.vue"),
+  },
   {
     path: "/",
     name: "Home",
@@ -33,7 +39,7 @@ const routes = [
         path: "/statistics",
         name: "statistics",
         component: Statistics,
-      }
+      },
     ],
   },
 ];
