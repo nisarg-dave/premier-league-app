@@ -5,7 +5,7 @@
         <v-container>
           <v-row justify="center" align="center" style="height: 100vh">
             <v-col cols="6">
-              <v-card color="aqua" class="pa-4">
+              <v-card lazy-validation ref="form" color="aqua" class="pa-4">
                 <v-form>
                   <div class="d-flex justify-center">
                     <v-img
@@ -16,31 +16,48 @@
                   <h1 class="text-center">The Prem</h1>
                   <v-text-field
                     v-model="userName"
+                    flat
+                    dense
+                    solo
                     outlined
                     required
+                    background-color="aqua"
                     color="black"
                     label="User Name"
-                    :rules="nameRules"
+                    :rules="userNameRules"
                   />
                   <v-text-field
                     v-model="email"
+                    flat
+                    dense
+                    solo
                     outlined
                     required
+                    background-color="aqua"
                     color="black"
                     label="Email"
                     :rules="emailRules"
                   />
                   <v-text-field
                     v-model="password"
+                    flat
+                    dense
+                    solo
                     outlined
                     required
+                    background-color="aqua"
                     color="black"
                     label="Password"
                     :rules="passwordRules"
+                    :type="showPassword ? 'text' : 'password'"
+                    :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+                    @click:append="showPassword = !showPassword"
                   />
                   <div class="d-flex justify-space-between">
-                    <v-btn color="error" class="black--text">Clear</v-btn>
-                    <v-btn color="springGreen">Submit</v-btn>
+                    <v-btn color="error" class="black--text" @click="clear"
+                      >Clear</v-btn
+                    >
+                    <v-btn color="springGreen" @click="submit">Submit</v-btn>
                   </div>
                 </v-form>
               </v-card>
@@ -55,6 +72,41 @@
 <script>
 export default {
   name: "Login",
+  data() {
+    return {
+      user: true,
+      showPassword: false,
+      userName: "",
+      email: "",
+      password: "",
+      userNameRules: [
+        (v) => !!v || "Name is required",
+        (v) =>
+          (v && v.length <= 15) || "User Name must be less than 15 characters",
+      ],
+      emailRules: [
+        (v) => !!v || "E-mail is required",
+        (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
+      ],
+      passwordRules: [
+        (v) => !!v || "Password is required",
+        (v) =>
+          (v && v.length <= 15) || "Password must be less than 15 characters",
+      ],
+    };
+  },
+  methods: {
+    clear() {
+      this.userName = "";
+      this.email = "";
+      this.password = "";
+    },
+    submit() {
+      if (this.user) {
+        this.$router.push("/");
+      }
+    },
+  },
 };
 </script>
 
