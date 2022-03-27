@@ -10,7 +10,8 @@ router.get("/standings", async (req, res) => {
   const { standings } = response[0].league;
   const leagueTableArr = standings[0].map((obj) => {
     const position = obj.rank;
-    const club = obj.team.logo;
+    const clubLogo = obj.team.logo;
+    const clubName = obj.team.name;
     const played = obj.all.played;
     const won = obj.all.win;
     const drawn = obj.all.draw;
@@ -21,7 +22,8 @@ router.get("/standings", async (req, res) => {
     const points = obj.points;
     return {
       position,
-      club,
+      clubLogo,
+      clubName,
       played,
       won,
       drawn,
