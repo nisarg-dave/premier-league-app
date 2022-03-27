@@ -4,6 +4,8 @@ import Home from "../views/Home.vue";
 import Standings from "../views/Standings.vue";
 import Fixtures from "../views/Fixtures.vue";
 import Statistics from "../views/Statistics.vue";
+import TopScorers from "../views/TopScorers.vue";
+import TopAssists from "../views/TopAssists.vue";
 
 Vue.use(VueRouter);
 
@@ -39,6 +41,16 @@ const routes = [
         path: "/statistics",
         name: "statistics",
         component: Statistics,
+      },
+      {
+        path: "/topscorers",
+        name: "topscorers",
+        component: TopScorers,
+      },
+      {
+        path: "/topassists",
+        name: "topassists",
+        component: TopAssists,
       },
     ],
   },

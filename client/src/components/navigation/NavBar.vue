@@ -40,23 +40,23 @@
 </template>
 
 <script>
-export default {
-  props: {
-    value: Boolean,
-  },
-  name: "NavBar",
-  methods: {
-    logout() {
-      this.$router.push("/login");
+  export default {
+    props: {
+      value: Boolean,
     },
-  },
-};
+    name: "NavBar",
+    methods: {
+      logout() {
+        this.$router.push("/login");
+      },
+    },
+  };
 </script>
 
 <style lang="scss" scoped>
-.title-wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
+  .title-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
 </style>

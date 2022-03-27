@@ -7,22 +7,21 @@
 </template>
 
 <script>
-import FixtureCard from "../components/stats/FixtureCard.vue";
-export default {
-  name: "Statistics",
-  components: {
-    FixtureCard,
-  },
-  data() {
-    return {
-      fixtureId: this.$route.params.fixtureId,
-    };
-  },
-  mounted() {
-    console.log(this.fixtureId);
-  },
-};
+  import FixtureCard from "../components/stats/FixtureCard.vue";
+  export default {
+    name: "Statistics",
+    components: {
+      FixtureCard,
+    },
+    data() {
+      return {
+        fixtureId: this.$route.params.fixtureId,
+      };
+    },
+    mounted() {
+      console.log(this.fixtureId);
+    },
+  };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

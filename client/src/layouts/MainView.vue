@@ -11,17 +11,17 @@
 </template>
 
 <script>
-import NavBar from "../components/navigation/NavBar.vue";
-import SideBar from "../components/navigation/SideBar.vue";
-export default {
-  name: "MainView",
-  components: { NavBar, SideBar },
-  data() {
-    return {
-      showSide: false,
-    };
-  },
-};
+  import NavBar from "../components/navigation/NavBar.vue";
+  import SideBar from "../components/navigation/SideBar.vue";
+  export default {
+    name: "MainView",
+    components: { NavBar, SideBar },
+    data() {
+      return {
+        showSide: false,
+      };
+    },
+  };
 </script>
 
 <style lang="scss" scoped></style>
