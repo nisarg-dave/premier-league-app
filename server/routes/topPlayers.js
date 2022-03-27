@@ -1,19 +1,37 @@
 import express from "express";
-import axios from "axios";
+import axios from "../axios.js";
+import requests from "../requests.js";
 
 const router = express.Router();
 
 router.get("/scorers", async (req, res) => {
-  const { data } = await axios.get(
-    "https://v3.football.api-sports.io/players/topscorers?league=39&season=2021",
-    {
-      headers: {
-        "x-rapidapi-host": "v3.football.api-sports.io",
-        "x-rapidapi-key": "cdb61658351d82c1a1a0764a715b7f7c",
-      },
-    }
-  );
-  console.log(data);
-  return res.send(data);
+  const { data } = await axios.get(requests.fetchTopScorers);
+  const { response } = data;
+  const topScorersArr = response.map((obj) => {
+    const playerPhoto = obj?.player?.photo;
+    const playerName = obj?.player?.name;
+    const team = obj?.statistics[0]?.team.logo;
+    const appearences = obj?.statistics[0]?.games.appearences;
+    const goals = obj?.statistics[0]?.goals?.total;
+    return { playerPhoto, playerName, team, appearences, goals };
+  });
+
+  return res.json(topScorersArr);
 });
+
+router.get("/assists", async (req, res) => {
+  const { data } = await axios.get(requests.fetchTopAssists);
+  const { response } = data;
+  const topAssitsArr = response.map((obj) => {
+    const playerPhoto = obj?.player?.photo;
+    const playerName = obj?.player?.name;
+    const team = obj?.statistics[0]?.team.logo;
+    const appearences = obj?.statistics[0]?.games.appearences;
+    const assists = obj?.statistics[0]?.goals?.assists;
+    return { playerPhoto, playerName, team, appearences, assists };
+  });
+
+  return res.json(topAssitsArr);
+});
+
 export default router;
