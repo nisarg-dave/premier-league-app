@@ -3,10 +3,9 @@
 </template>
 
 <script>
-export default {
-  name: "GameStatistics",
-};
+  export default {
+    name: "GameStatistics",
+  };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

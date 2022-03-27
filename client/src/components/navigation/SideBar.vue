@@ -31,12 +31,12 @@
         <v-list-item-title class="ml-8 mt-2">League Table</v-list-item-title>
       </v-list-item>
       <v-divider color="black" />
-      <v-list-item link :to="{ name: 'home' }">
+      <v-list-item link :to="{ name: 'topscorers' }">
         <v-icon color="black" class="ml-2">mdi-soccer</v-icon>
         <v-list-item-title class="ml-8 mt-2">Top Scorers</v-list-item-title>
       </v-list-item>
       <v-divider color="black" />
-      <v-list-item link :to="{ name: 'home' }">
+      <v-list-item link :to="{ name: 'topassists' }">
         <v-icon color="black" class="ml-2">mdi-soccer-field</v-icon>
         <v-list-item-title class="ml-8 mt-2">Top Assists</v-list-item-title>
       </v-list-item>
@@ -46,22 +46,22 @@
 </template>
 
 <script>
-export default {
-  props: {
-    value: Boolean,
-  },
-  name: "SideBar",
-  computed: {
-    showSideBar: {
-      get() {
-        return this.value;
-      },
-      set(value) {
-        this.$emit("input", value);
+  export default {
+    props: {
+      value: Boolean,
+    },
+    name: "SideBar",
+    computed: {
+      showSideBar: {
+        get() {
+          return this.value;
+        },
+        set(value) {
+          this.$emit("input", value);
+        },
       },
     },
-  },
-};
+  };
 </script>
 
 <style scoped></style>

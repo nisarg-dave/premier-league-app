@@ -13,28 +13,28 @@
 </template>
 
 <script>
-import RoundSelect from "../components/fixtures/RoundSelect.vue";
-export default {
-  name: "Fixtures",
-  data() {
-    return {
-      selectedRound: "",
-      componentKey: 0,
-    };
-  },
-  components: {
-    FixturesTable: () => ({
-      component: import("../components/fixtures/FixturesTable.vue"),
-    }),
-    RoundSelect,
-  },
-  methods: {
-    selectRound(round) {
-      this.selectedRound = round;
-      this.componentKey++;
+  import RoundSelect from "../components/fixtures/RoundSelect.vue";
+  export default {
+    name: "Fixtures",
+    data() {
+      return {
+        selectedRound: "",
+        componentKey: 0,
+      };
     },
-  },
-};
+    components: {
+      FixturesTable: () => ({
+        component: import("../components/fixtures/FixturesTable.vue"),
+      }),
+      RoundSelect,
+    },
+    methods: {
+      selectRound(round) {
+        this.selectedRound = round;
+        this.componentKey++;
+      },
+    },
+  };
 </script>
 
 <style lang="scss" scoped></style>
