@@ -8,6 +8,7 @@ router.get("/fixtures", async (req, res) => {
   const { data } = await axios.get(requests.fetchFixtures);
   const { response } = data;
   const fixtures = response.map((obj) => {
+    const id = obj.fixture.id;
     const date = obj.fixture.date;
     const location = obj.fixture.venue.name;
     const homeTeamLogo = obj.teams.home.logo;
@@ -15,6 +16,7 @@ router.get("/fixtures", async (req, res) => {
     const awayTeamLogo = obj.teams.away.logo;
     const awayTeamGoals = obj.goals.away;
     return {
+      id,
       date,
       location,
       homeTeamLogo,

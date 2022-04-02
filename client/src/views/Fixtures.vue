@@ -1,7 +1,9 @@
 <template>
   <div class="d-flex flex-column align-center">
-    <div v-for="fixture in getFixtures" :key="fixture.location">
+    <h1 class="white--text text-center">Last 10 Fixtures</h1>
+    <div v-for="fixture in getFixtures" :key="fixture.id">
       <FixtureCard
+        :fixtureId="fixture.id"
         :homeTeam="fixture.homeTeamLogo"
         :homeGoals="fixture.homeTeamGoals"
         :awayTeam="fixture.awayTeamLogo"

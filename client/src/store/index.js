@@ -42,7 +42,7 @@ export default new Vuex.Store({
       });
     },
     async fetchLeagueTable(context) {
-      const { data } = await axios.get("/league-table/standings");
+      const { data } = await axios.get("/standings");
       context.commit("setLeagueTable", {
         leagueTableArr: data,
       });
