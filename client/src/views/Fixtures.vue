@@ -1,40 +1,38 @@
 <template>
-  <div style="height: 100%" class="d-flex flex-column">
-    <div class="d-flex flex-row-reverse">
-      <RoundSelect @selectedRound="selectRound" />
-    </div>
-    <div class="d-flex justify-center">
-      <h1 class="white--text">Fixtures</h1>
-    </div>
-    <div class="flex-grow-1">
-      <FixturesTable :selectedRound="selectedRound" :key="componentKey" />
+  <div class="d-flex flex-column align-center">
+    <h1 class="white--text text-center">Last 10 Fixtures</h1>
+    <div v-for="fixture in getFixtures" :key="fixture.id">
+      <FixtureCard
+        :fixtureId="fixture.id"
+        :homeTeam="fixture.homeTeamLogo"
+        :homeGoals="fixture.homeTeamGoals"
+        :awayTeam="fixture.awayTeamLogo"
+        :awayGoals="fixture.awayTeamGoals"
+        :location="fixture.location"
+        :dateTime="fixture.date"
+      />
     </div>
   </div>
 </template>
 
 <script>
-  import RoundSelect from "../components/fixtures/RoundSelect.vue";
-  export default {
-    name: "Fixtures",
-    data() {
-      return {
-        selectedRound: "",
-        componentKey: 0,
-      };
-    },
-    components: {
-      FixturesTable: () => ({
-        component: import("../components/fixtures/FixturesTable.vue"),
-      }),
-      RoundSelect,
-    },
-    methods: {
-      selectRound(round) {
-        this.selectedRound = round;
-        this.componentKey++;
-      },
-    },
-  };
+import FixtureCard from "../components/fixtures/FixtureCard.vue";
+import { mapGetters, mapActions } from "vuex";
+export default {
+  name: "Fixtures",
+  components: {
+    FixtureCard,
+  },
+  methods: {
+    ...mapActions(["fetchFixtures"]),
+  },
+  computed: {
+    ...mapGetters(["getFixtures"]),
+  },
+  async created() {
+    await this.fetchFixtures();
+  },
+};
 </script>
 
 <style lang="scss" scoped></style>

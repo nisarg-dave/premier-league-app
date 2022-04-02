@@ -11,6 +11,7 @@ export default new Vuex.Store({
     topScorers: [],
     topAssists: [],
     leagueTable: [],
+    fixtures: [],
   },
   getters: {
     getTopScorers(state) {
@@ -21,6 +22,9 @@ export default new Vuex.Store({
     },
     getLeagueTable(state) {
       return state.leagueTable;
+    },
+    getFixtures(state) {
+      return state.fixtures;
     },
   },
   actions: {
@@ -38,9 +42,15 @@ export default new Vuex.Store({
       });
     },
     async fetchLeagueTable(context) {
-      const { data } = await axios.get("/league-table/standings");
+      const { data } = await axios.get("/standings");
       context.commit("setLeagueTable", {
         leagueTableArr: data,
+      });
+    },
+    async fetchFixtures(context) {
+      const { data } = await axios.get("/fixtures");
+      context.commit("setFixtures", {
+        fixturesArr: data,
       });
     },
   },
@@ -53,6 +63,9 @@ export default new Vuex.Store({
     },
     setLeagueTable(state, { leagueTableArr }) {
       state.leagueTable = leagueTableArr;
+    },
+    setFixtures(state, { fixturesArr }) {
+      state.fixtures = fixturesArr;
     },
   },
   modules: {},
