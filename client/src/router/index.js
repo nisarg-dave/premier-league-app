@@ -6,6 +6,7 @@ import Fixtures from "../views/Fixtures.vue";
 import Statistics from "../views/Statistics.vue";
 import TopScorers from "../views/TopScorers.vue";
 import TopAssists from "../views/TopAssists.vue";
+import LiveScores from "../views/LiveScores.vue";
 
 Vue.use(VueRouter);
 
@@ -51,6 +52,11 @@ const routes = [
         path: "/topassists",
         name: "topassists",
         component: TopAssists,
+      },
+      {
+        path: "/livescores",
+        name: "livescores",
+        component: LiveScores,
       },
     ],
   },
