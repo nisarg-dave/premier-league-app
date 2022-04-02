@@ -39,7 +39,7 @@ const routes = [
         component: Fixtures,
       },
       {
-        path: "/statistics",
+        path: "/statistics/:id",
         name: "statistics",
         component: Statistics,
       },

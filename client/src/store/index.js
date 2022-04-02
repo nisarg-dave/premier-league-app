@@ -13,6 +13,7 @@ export default new Vuex.Store({
     leagueTable: [],
     fixtures: [],
     liveScores: [],
+    stats: [],
   },
   getters: {
     getTopScorers(state) {
@@ -29,6 +30,9 @@ export default new Vuex.Store({
     },
     getLiveScores(state) {
       return state.liveScores;
+    },
+    getStats(state) {
+      return state.stats;
     },
   },
   actions: {
@@ -63,6 +67,13 @@ export default new Vuex.Store({
         liveScoresArr: data,
       });
     },
+    async fetchStats(context, gameId) {
+      const { data } = await axios.get(`/statistics/${gameId}`);
+      console.log(data);
+      context.commit("setStats", {
+        statsArr: data,
+      });
+    },
   },
   mutations: {
     setTopScorers(state, { topScorersArr }) {
@@ -79,6 +90,9 @@ export default new Vuex.Store({
     },
     setLiveScores(state, { liveScoresArr }) {
       state.liveScores = liveScoresArr;
+    },
+    setStats(state, { statsArr }) {
+      state.stats = statsArr;
     },
   },
   modules: {},
