@@ -12,8 +12,7 @@
       /></v-avatar>
     </div>
     <div class="d-flex align-center flex-column">
-      <h5 class="white--text">FT</h5>
-      <h3 class="white--text">{{ fixture[0].location }}</h3>
+      <h3 class="white--text mt-2">{{ fixture[0].location }}</h3>
       <h5 class="white--text">{{ date }}</h5>
     </div>
   </v-card>

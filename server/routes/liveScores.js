@@ -8,14 +8,14 @@ router.get("/liveScores", async (req, res) => {
   const { data } = await axios.get(requests.fetchLiveScores);
   const { response } = data;
   const liveScores = response.map((obj) => {
-    const id = obj.fixture.id;
-    const date = obj.fixture.date;
-    const location = obj.fixture.venue.name;
-    const status = obj.status.short;
-    const homeTeamLogo = obj.teams.home.logo;
-    const homeTeamGoals = obj.goals.home;
-    const awayTeamLogo = obj.teams.away.logo;
-    const awayTeamGoals = obj.goals.away;
+    const id = obj?.fixture?.id;
+    const date = obj?.fixture?.date;
+    const location = obj?.fixture?.venue?.name;
+    const status = obj?.fixture?.status?.elapsed;
+    const homeTeamLogo = obj?.teams?.home?.logo;
+    const homeTeamGoals = obj?.goals?.home;
+    const awayTeamLogo = obj?.teams?.away?.logo;
+    const awayTeamGoals = obj?.goals?.away;
     return {
       id,
       date,

@@ -1,6 +1,9 @@
 <template>
   <div class="d-flex flex-column align-center">
     <GameCard :fixture="getStats[0].fixture" />
+    <div v-for="(goal, index) in getStats[0].goals" :key="index">
+      <div v-if="goal.team.name === getStats[0].fixtureclass="d-flex flex-row"> </div>
+    </div>
     <LineUpsCard :lineUps="getStats[0].teamLineups" />
   </div>
 </template>

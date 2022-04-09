@@ -35,20 +35,20 @@ export default {
   computed: {
     startXIs() {
       const lineUpArr = [];
-      for (let i = 0; i < this.lineUps.homeTeamXI.length; i++) {
+      for (let i = 0; i < this.lineUps?.homeTeamXI?.length; i++) {
         lineUpArr.push({
-          homePlayerName: this.lineUps.homeTeamXI[i],
-          awayPlayerName: this.lineUps.awayTeamXI[i],
+          homePlayerName: this.lineUps?.homeTeamXI[i],
+          awayPlayerName: this.lineUps?.awayTeamXI[i],
         });
       }
       return lineUpArr;
     },
     subs() {
       const subsArr = [];
-      for (let i = 0; i < this.lineUps.homeTeamSubs.length; i++) {
+      for (let i = 0; i < this.lineUps?.homeTeamSubs?.length; i++) {
         subsArr.push({
-          homePlayerName: this.lineUps.homeTeamSubs[i],
-          awayPlayerName: this.lineUps.awayTeamSubs[i],
+          homePlayerName: this.lineUps?.homeTeamSubs[i],
+          awayPlayerName: this.lineUps?.awayTeamSubs[i],
         });
       }
       return subsArr;

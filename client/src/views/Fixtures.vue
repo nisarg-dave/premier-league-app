@@ -10,6 +10,7 @@
         :awayGoals="fixture.awayTeamGoals"
         :location="fixture.location"
         :dateTime="fixture.date"
+        :status="fixture.status"
       />
     </div>
   </div>

@@ -10,8 +10,8 @@ router.get("/scorers", async (req, res) => {
   const topScorersArr = response.map((obj) => {
     const playerPhoto = obj?.player?.photo;
     const playerName = obj?.player?.name;
-    const team = obj?.statistics[0]?.team.logo;
-    const appearences = obj?.statistics[0]?.games.appearences;
+    const team = obj?.statistics[0]?.team?.logo;
+    const appearences = obj?.statistics[0]?.games?.appearences;
     const goals = obj?.statistics[0]?.goals?.total;
     return { playerPhoto, playerName, team, appearences, goals };
   });
@@ -25,8 +25,8 @@ router.get("/assists", async (req, res) => {
   const topAssitsArr = response.map((obj) => {
     const playerPhoto = obj?.player?.photo;
     const playerName = obj?.player?.name;
-    const team = obj?.statistics[0]?.team.logo;
-    const appearences = obj?.statistics[0]?.games.appearences;
+    const team = obj?.statistics[0]?.team?.logo;
+    const appearences = obj?.statistics[0]?.games?.appearences;
     const assists = obj?.statistics[0]?.goals?.assists;
     return { playerPhoto, playerName, team, appearences, assists };
   });
