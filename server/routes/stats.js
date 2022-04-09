@@ -15,16 +15,20 @@ router.get("/statistics/:id", async (req, res) => {
     const date = obj?.fixture?.date;
     const location = obj?.fixture?.venue?.name;
     const homeTeamLogo = obj?.teams?.home?.logo;
+    const homeTeamName = obj?.teams?.home?.name;
     const homeTeamGoals = obj?.goals?.home;
     const awayTeamLogo = obj?.teams?.away?.logo;
+    const awayTeamName = obj?.teams?.away?.name;
     const awayTeamGoals = obj?.goals?.away;
     return {
       id,
       date,
       location,
       homeTeamLogo,
+      homeTeamName,
       homeTeamGoals,
       awayTeamLogo,
+      awayTeamName,
       awayTeamGoals,
     };
   });

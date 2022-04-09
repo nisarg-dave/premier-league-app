@@ -14,7 +14,7 @@
       <v-avatar tile size="65"><v-img :src="awayTeam" /></v-avatar>
     </div>
     <div class="d-flex align-center flex-column">
-      <h5 class="white--text mb-2">{{ status }}</h5>
+      <h5 class="white--text mb-2">{{ status }}'</h5>
       <h3 class="white--text">{{ location }}</h3>
       <h5 class="white--text">{{ date }}</h5>
       <h5 class="white--text">{{ time }}</h5>

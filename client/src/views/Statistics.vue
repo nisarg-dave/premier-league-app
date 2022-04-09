@@ -1,8 +1,23 @@
 <template>
   <div class="d-flex flex-column align-center">
     <GameCard :fixture="getStats[0].fixture" />
-    <div v-for="(goal, index) in getStats[0].goals" :key="index">
-      <div v-if="goal.team.name === getStats[0].fixtureclass="d-flex flex-row"> </div>
+    <div
+      v-for="(goal, index) in getStats[0].goals"
+      :key="index"
+      class="goalscorers"
+    >
+      <div
+        v-if="goal.team.name === getStats[0].fixture[0].homeTeamName"
+        class="goalscorers-goals-home white--text"
+      >
+        ⚽️ {{ goal.player.name }}{{ " " }}{{ goal.time.elapsed }}'
+      </div>
+      <div
+        v-else-if="goal.team.name === getStats[0].fixture[0].awayTeamName"
+        class="d-flex goalscorers-goals-away white--text"
+      >
+        ⚽️ {{ goal.player.name }}{{ " " }}{{ goal.time.elapsed }}'
+      </div>
     </div>
     <LineUpsCard :lineUps="getStats[0].teamLineups" />
   </div>
@@ -32,4 +47,22 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.goalscorers-goals-home {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.goalscorers-goals-away {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.goalscorers {
+  width: 23rem;
+  display: flex;
+  font-weight: 700;
+  font-size: 14px;
+}
+</style>
