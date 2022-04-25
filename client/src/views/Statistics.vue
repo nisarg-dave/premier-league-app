@@ -19,6 +19,7 @@
         ⚽️ {{ goal.player.name }}{{ " " }}{{ goal.time.elapsed }}'
       </div>
     </div>
+    <GameStatistics :gameStats="getStats[0].stats" />
     <LineUpsCard :lineUps="getStats[0].teamLineups" />
   </div>
 </template>
@@ -27,6 +28,7 @@
 import { mapGetters, mapActions } from "vuex";
 import GameCard from "../components/stats/GameCard.vue";
 import LineUpsCard from "../components/stats/LineupsCard.vue";
+import GameStatistics from "../components/stats/GameStatistics.vue";
 export default {
   name: "Statistics",
   computed: {
@@ -35,6 +37,7 @@ export default {
   components: {
     GameCard,
     LineUpsCard,
+    GameStatistics,
   },
   methods: {
     ...mapActions(["fetchStats"]),
