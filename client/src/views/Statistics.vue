@@ -41,7 +41,6 @@ export default {
   },
   async created() {
     const { id } = this.$route.params;
-    console.log(id);
     await this.fetchStats(id);
   },
 };

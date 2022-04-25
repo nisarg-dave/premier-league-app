@@ -38,7 +38,6 @@ export default new Vuex.Store({
   actions: {
     async fetchTopScorers(context) {
       const { data } = await axios.get("/top/scorers");
-      console.log(data);
       context.commit("setTopScorers", {
         topScorersArr: data,
       });
