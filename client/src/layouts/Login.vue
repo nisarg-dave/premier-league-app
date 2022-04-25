@@ -27,6 +27,7 @@
                     :rules="userNameRules"
                   />
                   <v-text-field
+                    v-if="checkbox"
                     v-model="email"
                     flat
                     dense
@@ -84,50 +85,49 @@
 </template>
 
 <script>
-  export default {
-    name: "Login",
-    data() {
-      return {
-        user: true,
-        showPassword: false,
-        checkbox: false,
-        userName: "",
-        email: "",
-        password: "",
-        userNameRules: [
-          (v) => !!v || "Name is required",
-          (v) =>
-            (v && v.length <= 15) ||
-            "User Name must be less than 15 characters",
-        ],
-        emailRules: [
-          (v) => !!v || "E-mail is required",
-          (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
-        ],
-        passwordRules: [
-          (v) => !!v || "Password is required",
-          (v) =>
-            (v && v.length <= 15) || "Password must be less than 15 characters",
-        ],
-      };
+export default {
+  name: "Login",
+  data() {
+    return {
+      user: true,
+      showPassword: false,
+      checkbox: false,
+      userName: "",
+      email: "",
+      password: "",
+      userNameRules: [
+        (v) => !!v || "Name is required",
+        (v) =>
+          (v && v.length <= 15) || "User Name must be less than 15 characters",
+      ],
+      emailRules: [
+        (v) => !!v || "E-mail is required",
+        (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
+      ],
+      passwordRules: [
+        (v) => !!v || "Password is required",
+        (v) =>
+          (v && v.length <= 15) || "Password must be less than 15 characters",
+      ],
+    };
+  },
+  methods: {
+    clear() {
+      this.userName = "";
+      this.email = "";
+      this.password = "";
     },
-    methods: {
-      clear() {
-        this.userName = "";
-        this.email = "";
-        this.password = "";
-      },
-      handleSubmit() {
-        if (this.user) {
-          this.$router.push("/");
-        }
-      },
+    handleSubmit() {
+      if (this.user) {
+        this.$router.push("/");
+      }
     },
-  };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-  .sheet-colour {
-    background: linear-gradient(45deg, #e90052 50%, #38003c 50%);
-  }
+.sheet-colour {
+  background: linear-gradient(45deg, #e90052 50%, #38003c 50%);
+}
 </style>

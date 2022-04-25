@@ -4,7 +4,7 @@
       <v-app-bar-nav-icon color="black" @click="$emit('input', !value)" />
     </v-col>
     <v-col class="title-wrapper">
-      <v-toolbar-title class="black--text">The Prem</v-toolbar-title>
+      <v-toolbar-title class="font-weight-black">The Prem</v-toolbar-title>
     </v-col>
     <v-divider vertical />
     <v-menu offset-y>
@@ -40,23 +40,23 @@
 </template>
 
 <script>
-  export default {
-    props: {
-      value: Boolean,
+export default {
+  props: {
+    value: Boolean,
+  },
+  name: "NavBar",
+  methods: {
+    logout() {
+      this.$router.push("/login");
     },
-    name: "NavBar",
-    methods: {
-      logout() {
-        this.$router.push("/login");
-      },
-    },
-  };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-  .title-wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
+.title-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 </style>

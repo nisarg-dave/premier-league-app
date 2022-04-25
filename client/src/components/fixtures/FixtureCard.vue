@@ -1,5 +1,11 @@
 <template>
-  <v-card rounded color="razzmatazz" elevation="12" class="ma-3 pa-3">
+  <v-card
+    rounded
+    color="razzmatazz"
+    elevation="12"
+    class="ma-3 pa-3"
+    @click="toStats"
+  >
     <div class="d-flex align-center justify-space-around">
       <v-avatar tile size="65"><v-img :src="homeTeam" /></v-avatar>
       <h2 class="white--text">{{ homeGoals }}</h2>
@@ -8,7 +14,7 @@
       <v-avatar tile size="65"><v-img :src="awayTeam" /></v-avatar>
     </div>
     <div class="d-flex align-center flex-column">
-      <h5 class="white--text">{{ status }}</h5>
+      <h5 class="white--text mb-2">{{ status }}'</h5>
       <h3 class="white--text">{{ location }}</h3>
       <h5 class="white--text">{{ date }}</h5>
       <h5 class="white--text">{{ time }}</h5>
@@ -54,6 +60,9 @@ export default {
         time[0] = +time[0] % 12 || 12; // Adjust hours
       }
       return time.join(""); // return adjusted time or original string
+    },
+    toStats() {
+      this.$router.push({ name: "statistics", params: { id: this.fixtureId } });
     },
   },
 };
