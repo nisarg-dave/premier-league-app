@@ -1,6 +1,6 @@
 <template>
   <v-card rounded color="razzmatazz" elevation="12" class="ma-3 pa-3">
-    <h3 class="white--text text-center mb-2">Game Statisics</h3>
+    <h3 class="white--text text-center mb-2">Game Statistics</h3>
     <h4 class="white--text text-center">Possession</h4>
     <div class="d-flex">
       <v-progress-linear
