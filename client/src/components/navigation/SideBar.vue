@@ -1,5 +1,10 @@
 <template>
-  <v-navigation-drawer v-model="showSideBar" app floating color="springGreen">
+  <v-navigation-drawer
+    v-model="showSideBar"
+    app
+    floating
+    :class="[getSelectedTeam !== null ? `${getSelectedTeam}` : 'springGreen']"
+  >
     <v-list-item class="mt-1 ml-13 d-flex justify-space-around">
       <router-link to="/">
         <v-img
@@ -46,12 +51,14 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   props: {
     value: Boolean,
   },
   name: "SideBar",
   computed: {
+    ...mapGetters(["getSelectedTeam"]),
     showSideBar: {
       get() {
         return this.value;
@@ -64,4 +71,65 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.Arsenal {
+  background-color: #ffffff;
+}
+.Villa {
+  background-color: #fee505;
+}
+.Brighton {
+  background-color: #fdb913;
+}
+.Brentford {
+  background-color: #ffffff;
+}
+.Burnley {
+  background-color: #fff30d;
+}
+.Chelsea {
+  background-color: #ffffff;
+}
+.Palace {
+  background-color: #c4122e;
+}
+.Everton {
+  background-color: #ffffff;
+}
+.Leicester {
+  background-color: #ffffff;
+}
+.Liverpool {
+  background-color: #d00027;
+}
+.Leeds {
+  background-color: #ffcd00;
+}
+.City {
+  background-color: #ffffff;
+}
+.United {
+  background-color: #ffe500;
+}
+.Newcastle {
+  background-color: #ffffff;
+}
+.Norwich {
+  background-color: #fff200;
+}
+.Southampton {
+  background-color: #22b24c;
+}
+.Tottenham {
+  background-color: #ffffff;
+}
+.Watford {
+  background-color: #fbee23;
+}
+.Hammers {
+  background-color: #f8d742;
+}
+.Wolves {
+  background-color: #fdb913;
+}
+</style>

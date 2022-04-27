@@ -14,6 +14,8 @@ export default new Vuex.Store({
     fixtures: [],
     liveScores: [],
     stats: [],
+    teams: [],
+    selectedTeam: null,
   },
   getters: {
     getTopScorers(state) {
@@ -33,6 +35,12 @@ export default new Vuex.Store({
     },
     getStats(state) {
       return state.stats;
+    },
+    getTeams(state) {
+      return state.teams;
+    },
+    getSelectedTeam(state) {
+      return state.selectedTeam;
     },
   },
   actions: {
@@ -68,9 +76,14 @@ export default new Vuex.Store({
     },
     async fetchStats(context, gameId) {
       const { data } = await axios.get(`/statistics/${gameId}`);
-      console.log(data);
       context.commit("setStats", {
         statsArr: data,
+      });
+    },
+    async fetchTeams(context) {
+      const { data } = await axios.get("/teams");
+      context.commit("setTeams", {
+        teamsArr: data,
       });
     },
   },
@@ -92,6 +105,12 @@ export default new Vuex.Store({
     },
     setStats(state, { statsArr }) {
       state.stats = statsArr;
+    },
+    setTeams(state, { teamsArr }) {
+      state.teams = teamsArr;
+    },
+    setSelectedTeam(state, { selectedTeam }) {
+      state.selectedTeam = selectedTeam;
     },
   },
   modules: {},
