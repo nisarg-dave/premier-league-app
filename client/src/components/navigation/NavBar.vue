@@ -4,7 +4,9 @@
     dense
     flat
     hide-on-scroll
-    :class="[getSelectedTeam !== null ? `${getSelectedTeam}` : 'springGreen']"
+    :class="[
+      getSelectedTeam !== null ? `${getSelectedTeam}-Nav` : 'springGreen',
+    ]"
   >
     <v-col cols="auto">
       <v-app-bar-nav-icon color="black" @click="$emit('input', !value)" />
@@ -21,7 +23,9 @@
             depressed
             tile
             :class="[
-              getSelectedTeam !== null ? `${getSelectedTeam}` : 'springGreen',
+              getSelectedTeam !== null
+                ? `${getSelectedTeam}-Nav`
+                : 'springGreen',
             ]"
             v-bind="sattrs"
             v-on="on"
@@ -33,12 +37,16 @@
       </template>
       <v-list
         :class="[
-          getSelectedTeam !== null ? `${getSelectedTeam}` : 'springGreen',
+          getSelectedTeam !== null ? `${getSelectedTeam}-Nav` : 'springGreen',
         ]"
       >
         <v-list-item>
           <v-avatar size="35" class="mr-2">
-            <v-img src="https://media.api-sports.io/football/leagues/39.png" />
+            <v-img
+              v-if="getSelectedTeam === null"
+              src="https://media.api-sports.io/football/leagues/39.png"
+            />
+            <v-img v-else :src="teamLogo" />
           </v-avatar>
           <v-list-item-title>Username</v-list-item-title>
         </v-list-item>
@@ -64,7 +72,32 @@ export default {
     },
   },
   computed: {
-    ...mapGetters(["getSelectedTeam"]),
+    ...mapGetters(["getSelectedTeam", "getTeams"]),
+    teamLogo() {
+      let found;
+      if (this.getSelectedTeam === "United") {
+        found = this.getTeams.find(
+          (team) => team.teamName === "Manchester United"
+        );
+      } else if (this.getSelectedTeam === "Villa") {
+        found = this.getTeams.find((team) => team.teamName === "Aston Villa");
+      } else if (this.getSelectedTeam === "City") {
+        found = this.getTeams.find(
+          (team) => team.teamName === "Manchester City"
+        );
+      } else if (this.getSelectedTeam === "Palace") {
+        found = this.getTeams.find(
+          (team) => team.teamName === "Crystal Palace"
+        );
+      } else if (this.getSelectedTeam === "Hammers") {
+        found = this.getTeams.find((team) => team.teamName === "West Ham");
+      } else {
+        found = this.getTeams.find(
+          (team) => team.teamName === this.getSelectedTeam
+        );
+      }
+      return found.teamLogo;
+    },
   },
 };
 </script>
@@ -75,64 +108,64 @@ export default {
   display: flex;
   justify-content: center;
 }
-.Arsenal {
-  color: #ffffff;
+.Arsenal-Nav {
+  background-color: #ffffff !important;
 }
-.Villa {
-  color: #670e36;
+.Villa-Nav {
+  background-color: #670e36 !important;
 }
-.Brighton {
-  background-color: #fdb913;
+.Brighton-Nav {
+  background-color: #fdb913 !important;
 }
-.Brentford {
-  background-color: #ffffff;
+.Brentford-Nav {
+  background-color: #ffffff !important;
 }
-.Burnley {
-  background-color: #97d9f6;
+.Burnley-Nav {
+  background-color: #97d9f6 !important;
 }
-.Chelsea {
-  background-color: #ffffff;
+.Chelsea-Nav {
+  background-color: #ffffff !important;
 }
-.Palace {
-  background-color: #c4122e;
+.Palace-Nav {
+  background-color: #c4122e !important;
 }
-.Everton {
-  background-color: #ffffff;
+.Everton-Nav {
+  background-color: #ffffff !important;
 }
-.Leicester {
-  background-color: #ffffff;
+.Leicester-Nav {
+  background-color: #ffffff !important;
 }
-.Liverpool {
-  background-color: #d00027;
+.Liverpool-Nav {
+  background-color: #d00027 !important;
 }
-.Leeds {
-  background-color: #ffcd00;
+.Leeds-Nav {
+  background-color: #ffcd00 !important;
 }
-.City {
-  background-color: #ffffff;
+.City-Nav {
+  background-color: #ffffff !important;
 }
-.United {
-  background-color: #ffe500;
+.United-Nav {
+  background-color: #ffe500 !important;
 }
-.Newcastle {
-  background-color: #ffffff;
+.Newcastle-Nav {
+  background-color: #ffffff !important;
 }
-.Norwich {
-  background-color: #fff200;
+.Norwich-Nav {
+  background-color: #fff200 !important;
 }
-.Southampton {
-  background-color: #22b24c;
+.Southampton-Nav {
+  background-color: #22b24c !important;
 }
-.Tottenham {
-  background-color: #ffffff;
+.Tottenham-Nav {
+  background-color: #ffffff !important;
 }
-.Watford {
-  background-color: #fbee23;
+.Watford-Nav {
+  background-color: #fbee23 !important;
 }
-.Hammers {
-  background-color: #2dafe5;
+.Hammers-Nav {
+  background-color: #2dafe5 !important;
 }
-.Wolves {
-  background-color: #fdb913;
+.Wolves-Nav {
+  background-color: #fdb913 !important;
 }
 </style>

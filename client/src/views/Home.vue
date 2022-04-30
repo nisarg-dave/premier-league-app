@@ -13,7 +13,7 @@
       </div>
     </div>
     <div v-if="getSelectedTeam !== null" class="d-flex flex-row-reverse">
-      <v-btn :class="`${getSelectedTeam}`" @click="changeTeam()"
+      <v-btn :class="`${getSelectedTeam}-Btn`" @click="changeTeam()"
         >Change Team</v-btn
       >
     </div>
@@ -54,7 +54,7 @@ export default {
   computed: {
     ...mapGetters(["getTeams", "getSelectedTeam"]),
     teams() {
-      return this.getTeams.map((team) => this.convertTeams(team));
+      return this.getTeams.map((team) => this.convertTeams(team.teamName));
     },
   },
   methods: {
@@ -91,64 +91,64 @@ export default {
 </script>
 
 <style scoped>
-.Arsenal {
-  background-color: #ffffff;
+.Arsenal-Btn {
+  background-color: #ffffff !important;
 }
-.Villa {
-  background-color: #fee505;
+.Villa-Btn {
+  background-color: #670e36 !important;
 }
-.Brighton {
-  background-color: #fdb913;
+.Brighton-Btn {
+  background-color: #fdb913 !important;
 }
-.Brentford {
-  background-color: #ffffff;
+.Brentford-Btn {
+  background-color: #ffffff !important;
 }
-.Burnley {
-  background-color: #fff30d;
+.Burnley-Btn {
+  background-color: #97d9f6 !important;
 }
-.Chelsea {
-  background-color: #ffffff;
+.Chelsea-Btn {
+  background-color: #ffffff !important;
 }
-.Palace {
-  background-color: #c4122e;
+.Palace-Btn {
+  background-color: #c4122e !important;
 }
-.Everton {
-  background-color: #ffffff;
+.Everton-Btn {
+  background-color: #ffffff !important;
 }
-.Leicester {
-  background-color: #ffffff;
+.Leicester-Btn {
+  background-color: #ffffff !important;
 }
-.Liverpool {
-  background-color: #d00027;
+.Liverpool-Btn {
+  background-color: #d00027 !important;
 }
-.Leeds {
-  background-color: #ffcd00;
+.Leeds-Btn {
+  background-color: #ffcd00 !important;
 }
-.City {
-  background-color: #ffffff;
+.City-Btn {
+  background-color: #ffffff !important;
 }
-.United {
-  background-color: #ffe500;
+.United-Btn {
+  background-color: #ffe500 !important;
 }
-.Newcastle {
-  background-color: #ffffff;
+.Newcastle-Btn {
+  background-color: #ffffff !important;
 }
-.Norwich {
-  background-color: #fff200;
+.Norwich-Btn {
+  background-color: #fff200 !important;
 }
-.Southampton {
-  background-color: #22b24c;
+.Southampton-Btn {
+  background-color: #22b24c !important;
 }
-.Tottenham {
-  background-color: #ffffff;
+.Tottenham-Btn {
+  background-color: #ffffff !important;
 }
-.Watford {
-  background-color: #fbee23;
+.Watford-Btn {
+  background-color: #fbee23 !important;
 }
-.Hammers {
-  background-color: #f8d742;
+.Hammers-Btn {
+  background-color: #2dafe5 !important;
 }
-.Wolves {
-  background-color: #fdb913;
+.Wolves-Btn {
+  background-color: #fdb913 !important;
 }
 </style>

@@ -3,15 +3,19 @@
     v-model="showSideBar"
     app
     floating
-    :class="[getSelectedTeam !== null ? `${getSelectedTeam}` : 'springGreen']"
+    :class="[
+      getSelectedTeam !== null ? `${getSelectedTeam}-Side` : 'springGreen',
+    ]"
   >
     <v-list-item class="mt-1 ml-13 d-flex justify-space-around">
       <router-link to="/">
         <v-img
+          v-if="getSelectedTeam === null"
           src="https://media.api-sports.io/football/leagues/39.png"
           max-height="100"
           max-width="50"
         />
+        <v-img v-else :src="teamLogo" max-height="100" max-width="50" />
       </router-link>
     </v-list-item>
     <v-list>
@@ -58,7 +62,8 @@ export default {
   },
   name: "SideBar",
   computed: {
-    ...mapGetters(["getSelectedTeam"]),
+    ...mapGetters(["getSelectedTeam", "getTeams"]),
+
     showSideBar: {
       get() {
         return this.value;
@@ -67,69 +72,94 @@ export default {
         this.$emit("input", value);
       },
     },
+    teamLogo() {
+      let found;
+      if (this.getSelectedTeam === "United") {
+        found = this.getTeams.find(
+          (team) => team.teamName === "Manchester United"
+        );
+      } else if (this.getSelectedTeam === "Villa") {
+        found = this.getTeams.find((team) => team.teamName === "Aston Villa");
+      } else if (this.getSelectedTeam === "City") {
+        found = this.getTeams.find(
+          (team) => team.teamName === "Manchester City"
+        );
+      } else if (this.getSelectedTeam === "Palace") {
+        found = this.getTeams.find(
+          (team) => team.teamName === "Crystal Palace"
+        );
+      } else if (this.getSelectedTeam === "Hammers") {
+        found = this.getTeams.find((team) => team.teamName === "West Ham");
+      } else {
+        found = this.getTeams.find(
+          (team) => team.teamName === this.getSelectedTeam
+        );
+      }
+      return found.teamLogo;
+    },
   },
 };
 </script>
 
 <style scoped>
-.Arsenal {
-  background-color: #ffffff;
+.Arsenal-Side {
+  background-color: #ffffff !important;
 }
-.Villa {
-  background-color: #fee505;
+.Villa-Side {
+  background-color: #fee505 !important;
 }
-.Brighton {
-  background-color: #fdb913;
+.Brighton-Side {
+  background-color: #fdb913 !important;
 }
-.Brentford {
-  background-color: #ffffff;
+.Brentford-Side {
+  background-color: #ffffff !important;
 }
-.Burnley {
-  background-color: #fff30d;
+.Burnley-Side {
+  background-color: #fff30d !important;
 }
-.Chelsea {
-  background-color: #ffffff;
+.Chelsea-Side {
+  background-color: #ffffff !important;
 }
-.Palace {
-  background-color: #c4122e;
+.Palace-Side {
+  background-color: #c4122e !important;
 }
-.Everton {
-  background-color: #ffffff;
+.Everton-Side {
+  background-color: #ffffff !important;
 }
-.Leicester {
-  background-color: #ffffff;
+.Leicester-Side {
+  background-color: #ffffff !important;
 }
-.Liverpool {
-  background-color: #d00027;
+.Liverpool-Side {
+  background-color: #d00027 !important;
 }
-.Leeds {
-  background-color: #ffcd00;
+.Leeds-Side {
+  background-color: #ffcd00 !important;
 }
-.City {
-  background-color: #ffffff;
+.City-Side {
+  background-color: #ffffff !important;
 }
-.United {
-  background-color: #ffe500;
+.United-Side {
+  background-color: #ffe500 !important;
 }
-.Newcastle {
-  background-color: #ffffff;
+.Newcastle-Side {
+  background-color: #ffffff !important;
 }
-.Norwich {
-  background-color: #fff200;
+.Norwich-Side {
+  background-color: #fff200 !important;
 }
-.Southampton {
-  background-color: #22b24c;
+.Southampton-Side {
+  background-color: #22b24c !important;
 }
-.Tottenham {
-  background-color: #ffffff;
+.Tottenham-Side {
+  background-color: #ffffff !important;
 }
-.Watford {
-  background-color: #fbee23;
+.Watford-Side {
+  background-color: #fbee23 !important;
 }
-.Hammers {
-  background-color: #f8d742;
+.Hammers-Side {
+  background-color: #f8d742 !important;
 }
-.Wolves {
-  background-color: #fdb913;
+.Wolves-Side {
+  background-color: #fdb913 !important;
 }
 </style>
