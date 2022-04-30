@@ -112,6 +112,9 @@ export default new Vuex.Store({
     setSelectedTeam(state, { selectedTeam }) {
       state.selectedTeam = selectedTeam;
     },
+    resetSelectedTeam(state) {
+      state.selectedTeam = null;
+    },
   },
   modules: {},
 });
