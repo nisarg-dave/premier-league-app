@@ -3,7 +3,14 @@
     <NavBar v-model="showSide" />
     <SideBar v-model="showSide" />
     <v-main>
-      <v-sheet color="mardiGras" height="100%" class="pa-4">
+      <v-sheet
+        height="100%"
+        :class="[
+          getSelectedTeam !== null
+            ? `${getSelectedTeam} pa-4`
+            : 'mardiGras pa-4',
+        ]"
+      >
         <router-view />
       </v-sheet>
     </v-main>
@@ -13,6 +20,7 @@
 <script>
 import NavBar from "../components/navigation/NavBar.vue";
 import SideBar from "../components/navigation/SideBar.vue";
+import { mapGetters } from "vuex";
 export default {
   name: "MainView",
   components: { NavBar, SideBar },
@@ -21,7 +29,10 @@ export default {
       showSide: false,
     };
   },
+  computed: {
+    ...mapGetters(["getSelectedTeam"]),
+  },
 };
 </script>
 
-<style lang="scss" scoped></style>
+

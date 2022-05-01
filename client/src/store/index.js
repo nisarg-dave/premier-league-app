@@ -2,6 +2,7 @@ import Vue from "vue";
 import Vuex from "vuex";
 import createPersistedState from "vuex-persistedstate";
 import axios from "../service/axios.js";
+import auth from "./modules/auth.js";
 
 Vue.use(Vuex);
 
@@ -14,6 +15,7 @@ export default new Vuex.Store({
     fixtures: [],
     liveScores: [],
     stats: [],
+    teams: [],
   },
   getters: {
     getTopScorers(state) {
@@ -33,6 +35,9 @@ export default new Vuex.Store({
     },
     getStats(state) {
       return state.stats;
+    },
+    getTeams(state) {
+      return state.teams;
     },
   },
   actions: {
@@ -68,9 +73,14 @@ export default new Vuex.Store({
     },
     async fetchStats(context, gameId) {
       const { data } = await axios.get(`/statistics/${gameId}`);
-      console.log(data);
       context.commit("setStats", {
         statsArr: data,
+      });
+    },
+    async fetchTeams(context) {
+      const { data } = await axios.get("/teams");
+      context.commit("setTeams", {
+        teamsArr: data,
       });
     },
   },
@@ -93,6 +103,9 @@ export default new Vuex.Store({
     setStats(state, { statsArr }) {
       state.stats = statsArr;
     },
+    setTeams(state, { teamsArr }) {
+      state.teams = teamsArr;
+    },
   },
-  modules: {},
+  modules: { auth },
 });

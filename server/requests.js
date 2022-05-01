@@ -5,6 +5,7 @@ const requests = {
   fetchFixtures: "fixtures?league=39&season=2021&last=10",
   fetchLiveScores: "fixtures?league=39&season=2021&live=all",
   fetchStats: "fixtures",
+  fetchTeams: "teams?league=39&season=2021",
 };
 
 export default requests;

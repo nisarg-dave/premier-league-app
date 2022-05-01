@@ -1,9 +1,23 @@
 <template>
-  <v-navigation-drawer v-model="showSideBar" app floating color="springGreen">
+  <v-navigation-drawer
+    v-model="showSideBar"
+    app
+    floating
+    :class="[
+      getSelectedTeam !== null ? `${getSelectedTeam}-Side` : 'springGreen',
+    ]"
+  >
     <v-list-item class="mt-1 ml-13 d-flex justify-space-around">
       <router-link to="/">
         <v-img
+          v-if="getSelectedTeam === null"
           src="https://media.api-sports.io/football/leagues/39.png"
+          max-height="100"
+          max-width="50"
+        />
+        <v-img
+          v-else
+          :src="getSelectedTeamLogo"
           max-height="100"
           max-width="50"
         />
@@ -46,12 +60,15 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   props: {
     value: Boolean,
   },
   name: "SideBar",
   computed: {
+    ...mapGetters(["getSelectedTeam", "getTeams", "getSelectedTeamLogo"]),
+
     showSideBar: {
       get() {
         return this.value;
@@ -64,4 +81,65 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.Arsenal-Side {
+  background-color: #ffffff !important;
+}
+.Villa-Side {
+  background-color: #fee505 !important;
+}
+.Brighton-Side {
+  background-color: #fdb913 !important;
+}
+.Brentford-Side {
+  background-color: #ffffff !important;
+}
+.Burnley-Side {
+  background-color: #fff30d !important;
+}
+.Chelsea-Side {
+  background-color: #ffffff !important;
+}
+.Palace-Side {
+  background-color: #c4122e !important;
+}
+.Everton-Side {
+  background-color: #ffffff !important;
+}
+.Leicester-Side {
+  background-color: #ffffff !important;
+}
+.Liverpool-Side {
+  background-color: #d00027 !important;
+}
+.Leeds-Side {
+  background-color: #ffffff !important;
+}
+.City-Side {
+  background-color: #ffffff !important;
+}
+.United-Side {
+  background-color: #ffe500 !important;
+}
+.Newcastle-Side {
+  background-color: #ffffff !important;
+}
+.Norwich-Side {
+  background-color: #fff200 !important;
+}
+.Southampton-Side {
+  background-color: #ffffff !important;
+}
+.Tottenham-Side {
+  background-color: #ffffff !important;
+}
+.Watford-Side {
+  background-color: #ed2127 !important;
+}
+.Hammers-Side {
+  background-color: #f8d742 !important;
+}
+.Wolves-Side {
+  background-color: #fdb913 !important;
+}
+</style>
