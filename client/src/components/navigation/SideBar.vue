@@ -133,7 +133,7 @@ export default {
   background-color: #d00027 !important;
 }
 .Leeds-Side {
-  background-color: #ffcd00 !important;
+  background-color: #ffffff !important;
 }
 .City-Side {
   background-color: #ffffff !important;
@@ -148,13 +148,13 @@ export default {
   background-color: #fff200 !important;
 }
 .Southampton-Side {
-  background-color: #22b24c !important;
+  background-color: #ffffff !important;
 }
 .Tottenham-Side {
   background-color: #ffffff !important;
 }
 .Watford-Side {
-  background-color: #fbee23 !important;
+  background-color: #ed2127 !important;
 }
 .Hammers-Side {
   background-color: #f8d742 !important;

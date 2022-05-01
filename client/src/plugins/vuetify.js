@@ -28,7 +28,7 @@ export default new Vuetify({
         Norwich: "#00a650",
         Southampton: "#ed1a3b",
         Tottenham: "#132257",
-        Watford: "#ed2127",
+        Watford: "#000000",
         Hammers: "#7c2c3b",
         Wolves: "#000000",
       },

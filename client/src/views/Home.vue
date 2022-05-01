@@ -12,6 +12,12 @@
         />
       </div>
     </div>
+    <div
+      v-if="getSelectedTeam !== null"
+      class="d-flex flex-column align-center"
+    >
+      <h2 class="white--text mt-10">More to come...</h2>
+    </div>
     <div v-if="getSelectedTeam !== null" class="d-flex flex-row-reverse">
       <v-btn :class="`${getSelectedTeam}-Btn`" @click="changeTeam()"
         >Change Team</v-btn
@@ -27,28 +33,6 @@ export default {
   data() {
     return {
       selectedTeam: "",
-      // teams: [
-      //   "Manchester United",
-      //   "Newcastle",
-      //   "Watford",
-      //   "Wolves",
-      //   "Liverpool",
-      //   "Southampton",
-      //   "Arsenal",
-      //   "Burnley",
-      //   "Everton",
-      //   "Leicester",
-      //   "Tottenham",
-      //   "West Ham",
-      //   "Chelsea",
-      //   "Manchester City",
-      //   "Brighton",
-      //   "Crystal Palace",
-      //   "Brentford",
-      //   "Leeds",
-      //   "Aston Villa",
-      //   "Norwich",
-      // ],
     };
   },
   computed: {
