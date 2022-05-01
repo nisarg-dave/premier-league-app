@@ -2,6 +2,7 @@ import Vue from "vue";
 import Vuex from "vuex";
 import createPersistedState from "vuex-persistedstate";
 import axios from "../service/axios.js";
+import auth from "./modules/auth.js";
 
 Vue.use(Vuex);
 
@@ -15,7 +16,6 @@ export default new Vuex.Store({
     liveScores: [],
     stats: [],
     teams: [],
-    selectedTeam: null,
   },
   getters: {
     getTopScorers(state) {
@@ -38,9 +38,6 @@ export default new Vuex.Store({
     },
     getTeams(state) {
       return state.teams;
-    },
-    getSelectedTeam(state) {
-      return state.selectedTeam;
     },
   },
   actions: {
@@ -109,12 +106,6 @@ export default new Vuex.Store({
     setTeams(state, { teamsArr }) {
       state.teams = teamsArr;
     },
-    setSelectedTeam(state, { selectedTeam }) {
-      state.selectedTeam = selectedTeam;
-    },
-    resetSelectedTeam(state) {
-      state.selectedTeam = null;
-    },
   },
-  modules: {},
+  modules: { auth },
 });

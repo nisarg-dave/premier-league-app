@@ -65,7 +65,30 @@ export default {
   },
   watch: {
     selectedTeam(val) {
-      this.setSelectedTeam({ selectedTeam: val });
+      let found;
+      if (val === "United") {
+        found = this.getTeams.find(
+          (team) => team.teamName === "Manchester United"
+        );
+      } else if (val === "Villa") {
+        found = this.getTeams.find((team) => team.teamName === "Aston Villa");
+      } else if (val === "City") {
+        found = this.getTeams.find(
+          (team) => team.teamName === "Manchester City"
+        );
+      } else if (val === "Palace") {
+        found = this.getTeams.find(
+          (team) => team.teamName === "Crystal Palace"
+        );
+      } else if (val === "Hammers") {
+        found = this.getTeams.find((team) => team.teamName === "West Ham");
+      } else {
+        found = this.getTeams.find((team) => team.teamName === val);
+      }
+      this.setSelectedTeam({
+        selectedTeam: val,
+        selectedTeamLogo: found.teamLogo,
+      });
     },
   },
   async created() {

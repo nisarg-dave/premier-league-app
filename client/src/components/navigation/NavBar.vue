@@ -46,7 +46,7 @@
               v-if="getSelectedTeam === null"
               src="https://media.api-sports.io/football/leagues/39.png"
             />
-            <v-img v-else :src="teamLogo" />
+            <v-img v-else :src="getSelectedTeamLogo" />
           </v-avatar>
           <v-list-item-title>Username</v-list-item-title>
         </v-list-item>
@@ -72,32 +72,7 @@ export default {
     },
   },
   computed: {
-    ...mapGetters(["getSelectedTeam", "getTeams"]),
-    teamLogo() {
-      let found;
-      if (this.getSelectedTeam === "United") {
-        found = this.getTeams.find(
-          (team) => team.teamName === "Manchester United"
-        );
-      } else if (this.getSelectedTeam === "Villa") {
-        found = this.getTeams.find((team) => team.teamName === "Aston Villa");
-      } else if (this.getSelectedTeam === "City") {
-        found = this.getTeams.find(
-          (team) => team.teamName === "Manchester City"
-        );
-      } else if (this.getSelectedTeam === "Palace") {
-        found = this.getTeams.find(
-          (team) => team.teamName === "Crystal Palace"
-        );
-      } else if (this.getSelectedTeam === "Hammers") {
-        found = this.getTeams.find((team) => team.teamName === "West Ham");
-      } else {
-        found = this.getTeams.find(
-          (team) => team.teamName === this.getSelectedTeam
-        );
-      }
-      return found.teamLogo;
-    },
+    ...mapGetters(["getSelectedTeam", "getTeams", "getSelectedTeamLogo"]),
   },
 };
 </script>

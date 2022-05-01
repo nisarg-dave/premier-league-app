@@ -15,7 +15,12 @@
           max-height="100"
           max-width="50"
         />
-        <v-img v-else :src="teamLogo" max-height="100" max-width="50" />
+        <v-img
+          v-else
+          :src="getSelectedTeamLogo"
+          max-height="100"
+          max-width="50"
+        />
       </router-link>
     </v-list-item>
     <v-list>
@@ -62,7 +67,7 @@ export default {
   },
   name: "SideBar",
   computed: {
-    ...mapGetters(["getSelectedTeam", "getTeams"]),
+    ...mapGetters(["getSelectedTeam", "getTeams", "getSelectedTeamLogo"]),
 
     showSideBar: {
       get() {
@@ -71,31 +76,6 @@ export default {
       set(value) {
         this.$emit("input", value);
       },
-    },
-    teamLogo() {
-      let found;
-      if (this.getSelectedTeam === "United") {
-        found = this.getTeams.find(
-          (team) => team.teamName === "Manchester United"
-        );
-      } else if (this.getSelectedTeam === "Villa") {
-        found = this.getTeams.find((team) => team.teamName === "Aston Villa");
-      } else if (this.getSelectedTeam === "City") {
-        found = this.getTeams.find(
-          (team) => team.teamName === "Manchester City"
-        );
-      } else if (this.getSelectedTeam === "Palace") {
-        found = this.getTeams.find(
-          (team) => team.teamName === "Crystal Palace"
-        );
-      } else if (this.getSelectedTeam === "Hammers") {
-        found = this.getTeams.find((team) => team.teamName === "West Ham");
-      } else {
-        found = this.getTeams.find(
-          (team) => team.teamName === this.getSelectedTeam
-        );
-      }
-      return found.teamLogo;
     },
   },
 };
