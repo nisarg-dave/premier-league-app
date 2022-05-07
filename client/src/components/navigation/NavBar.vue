@@ -48,9 +48,9 @@
             />
             <v-img v-else :src="getSelectedTeamLogo" />
           </v-avatar>
-          <v-list-item-title>Username</v-list-item-title>
+          <v-list-item-title>{{ getUser.username }}</v-list-item-title>
         </v-list-item>
-        <v-list-item link @click="logout">
+        <v-list-item link @click="handleLogout">
           <v-icon class="mr-3 ml-2" color="black">mdi-logout</v-icon>
           <v-list-item-title>Logout</v-list-item-title>
         </v-list-item>
@@ -60,19 +60,25 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 export default {
   props: {
     value: Boolean,
   },
   name: "NavBar",
   methods: {
-    logout() {
-      this.$router.push("/login");
+    ...mapMutations(["logout"]),
+    handleLogout() {
+      this.logout();
     },
   },
   computed: {
-    ...mapGetters(["getSelectedTeam", "getTeams", "getSelectedTeamLogo"]),
+    ...mapGetters([
+      "getSelectedTeam",
+      "getTeams",
+      "getSelectedTeamLogo",
+      "getUser",
+    ]),
   },
 };
 </script>

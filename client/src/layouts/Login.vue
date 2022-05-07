@@ -85,11 +85,11 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
 export default {
   name: "Login",
   data() {
     return {
-      user: true,
       showPassword: false,
       checkbox: false,
       userName: "",
@@ -112,16 +112,46 @@ export default {
     };
   },
   methods: {
+    ...mapActions(["signUp", "logIn"]),
     clear() {
       this.userName = "";
       this.email = "";
       this.password = "";
     },
-    handleSubmit() {
-      if (this.user) {
-        this.$router.push("/");
+    async handleSubmit() {
+      // Sign Up
+      if (this.checkbox) {
+        const user = {
+          userName: this.userName,
+          email: this.email,
+          password: this.password,
+        };
+        await this.signUp(user);
+        console.log(this.getAuthErrors);
+
+        if (this.getAuthErrors.length > 0) {
+          alert(this.getAuthErrors[0].msg);
+        } else {
+          this.$router.push("/");
+        }
+      }
+      // Else log in
+      else {
+        const user = {
+          userName: this.userName,
+          password: this.password,
+        };
+        await this.logIn(user);
+        if (this.getAuthErrors.length > 0) {
+          alert(this.getAuthErrors[0].msg);
+        } else {
+          this.$router.push("/");
+        }
       }
     },
+  },
+  computed: {
+    ...mapGetters(["getAuthErrors"]),
   },
 };
 </script>

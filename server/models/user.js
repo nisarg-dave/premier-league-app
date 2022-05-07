@@ -21,11 +21,11 @@ const userSchema = new Schema({
   },
   selectedTeam: {
     type: String,
-    required: true,
+    required: false,
   },
   selectedTeamLogo: {
     type: String,
-    required: true,
+    required: false,
   },
 });
 

@@ -36,14 +36,14 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["getTeams", "getSelectedTeam"]),
+    ...mapGetters(["getTeams", "getSelectedTeam", "getUser"]),
     teams() {
       return this.getTeams.map((team) => this.convertTeams(team.teamName));
     },
   },
   methods: {
-    ...mapActions(["fetchTeams"]),
-    ...mapMutations(["setSelectedTeam", "resetSelectedTeam"]),
+    ...mapActions(["fetchTeams", "setSelectedTeam"]),
+    ...mapMutations(["resetSelectedTeam"]),
     convertTeams(team) {
       if (team == "Manchester United") {
         return "United";
@@ -64,7 +64,7 @@ export default {
     },
   },
   watch: {
-    selectedTeam(val) {
+    async selectedTeam(val) {
       let found;
       if (val === "United") {
         found = this.getTeams.find(
@@ -85,10 +85,12 @@ export default {
       } else {
         found = this.getTeams.find((team) => team.teamName === val);
       }
-      this.setSelectedTeam({
+      const selectedTeamObj = {
+        username: this.getUser.username,
         selectedTeam: val,
         selectedTeamLogo: found.teamLogo,
-      });
+      };
+      await this.setSelectedTeam(selectedTeamObj);
     },
   },
   async created() {
