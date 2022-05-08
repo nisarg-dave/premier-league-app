@@ -88,7 +88,7 @@ export default {
       const selectedTeamObj = {
         username: this.getUser.username,
         selectedTeam: val,
-        selectedTeamLogo: found.teamLogo,
+        selectedTeamLogo: found?.teamLogo,
       };
       await this.setSelectedTeam(selectedTeamObj);
     },

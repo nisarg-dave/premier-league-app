@@ -106,6 +106,15 @@ export default new Vuex.Store({
     setTeams(state, { teamsArr }) {
       state.teams = teamsArr;
     },
+    clearStore(state) {
+      state.topScorers = [];
+      state.topAssists = [];
+      state.leagueTable = [];
+      state.fixtures = [];
+      state.liveScores = [];
+      state.stats = [];
+      state.teams = [];
+    },
   },
   modules: { auth },
 });

@@ -127,8 +127,6 @@ export default {
           password: this.password,
         };
         await this.signUp(user);
-        console.log(this.getAuthErrors);
-
         if (this.getAuthErrors.length > 0) {
           alert(this.getAuthErrors[0].msg);
         } else {

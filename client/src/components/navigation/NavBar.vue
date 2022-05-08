@@ -67,8 +67,9 @@ export default {
   },
   name: "NavBar",
   methods: {
-    ...mapMutations(["logout"]),
+    ...mapMutations(["logout", "clearStore"]),
     handleLogout() {
+      this.clearStore();
       this.logout();
     },
   },

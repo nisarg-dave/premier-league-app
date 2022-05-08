@@ -34,7 +34,7 @@ const actions = {
       selectedTeam: null,
       selectedTeamLogo: null,
     });
-    context.commit("setUserAndToken", {
+    context.commit("setUserAndTokenSignUp", {
       response,
     });
   },
@@ -44,23 +44,25 @@ const actions = {
       password: user.password,
     });
     const { data } = response;
-    context.commit("setUserAndToken", {
+    context.commit("setUserAndTokenLogIn", {
       response: data,
     });
   },
   async setSelectedTeam(context, selectedTeamObj) {
+    console.log("selectedTeamObj", selectedTeamObj);
     const { data } = await axios.post("auth/selectTeam", {
       username: selectedTeamObj.username,
       selectedTeam: selectedTeamObj.selectedTeam,
       selectedTeamLogo: selectedTeamObj.selectedTeamLogo,
     });
+    console.log("returned data", data);
     context.commit("setSelectedTeam", {
       response: data,
     });
   },
 };
 const mutations = {
-  setUserAndToken(state, { response }) {
+  setUserAndTokenSignUp(state, { response }) {
     console.log(response);
     state.token = response?.data?.data?.token;
     axios.defaults.headers.common["authorization"] = `Bearer ${state.token}`;
@@ -69,9 +71,18 @@ const mutations = {
     state.user.selectedTeam = response?.data?.data?.user?.selectedTeam;
     state.user.selectedTeamLogo = response?.data?.data?.user?.selectedTeamLogo;
   },
+  setUserAndTokenLogIn(state, { response }) {
+    console.log(response);
+    state.token = response?.data?.token;
+    axios.defaults.headers.common["authorization"] = `Bearer ${state.token}`;
+    state.errors = response?.errors;
+    state.user.username = response?.data?.user?.username;
+    state.user.selectedTeam = response?.data?.user?.selectedTeam;
+    state.user.selectedTeamLogo = response?.data?.user?.selectedTeamLogo;
+  },
   setSelectedTeam(state, { response }) {
-    state.user.selectedTeam = response?.data?.data?.user?.selectedTeam;
-    state.user.selectedTeamLogo = response?.data?.data?.user?.selectedTeamLogo;
+    state.user.selectedTeam = response?.data?.user?.selectedTeam;
+    state.user.selectedTeamLogo = response?.data?.user?.selectedTeamLogo;
   },
   resetSelectedTeam(state) {
     state.user.selectedTeam = null;
