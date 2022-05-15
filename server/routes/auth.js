@@ -147,28 +147,32 @@ router.post("/login", async (req, res) => {
 router.post("/selectTeam", async (req, res) => {
   const { username, selectedTeam, selectedTeamLogo } = req.body;
   const user = await User.findOne({ username });
-  console.log(user);
-  console.log(username, selectedTeam, selectedTeamLogo);
   await User.findByIdAndUpdate(user._id, {
     selectedTeam: selectedTeam,
   });
   await User.findByIdAndUpdate(user._id, {
     selectedTeamLogo: selectedTeamLogo,
   });
+
+  const updatedUser = await User.findOne({ username });
   // Create JWT token
-  const token = await JWT.sign({ email: user.email }, process.env.JWT_SECRET, {
-    expiresIn: "3d",
-  });
+  const token = await JWT.sign(
+    { email: updatedUser.email },
+    process.env.JWT_SECRET,
+    {
+      expiresIn: "3d",
+    }
+  );
 
   return res.json({
     errors: [],
     data: {
       token,
       user: {
-        id: user._id,
-        username: user.username,
-        selectedTeam: user.selectedTeam,
-        selectedTeamLogo: user.selectedTeamLogo,
+        id: updatedUser._id,
+        username: updatedUser.username,
+        selectedTeam: updatedUser.selectedTeam,
+        selectedTeamLogo: updatedUser.selectedTeamLogo,
       },
     },
   });

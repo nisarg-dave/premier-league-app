@@ -49,13 +49,11 @@ const actions = {
     });
   },
   async setSelectedTeam(context, selectedTeamObj) {
-    console.log("selectedTeamObj", selectedTeamObj);
     const { data } = await axios.post("auth/selectTeam", {
       username: selectedTeamObj.username,
       selectedTeam: selectedTeamObj.selectedTeam,
       selectedTeamLogo: selectedTeamObj.selectedTeamLogo,
     });
-    console.log("returned data", data);
     context.commit("setSelectedTeam", {
       response: data,
     });
@@ -63,7 +61,6 @@ const actions = {
 };
 const mutations = {
   setUserAndTokenSignUp(state, { response }) {
-    console.log(response);
     state.token = response?.data?.data?.token;
     axios.defaults.headers.common["authorization"] = `Bearer ${state.token}`;
     state.errors = response?.data?.errors;
@@ -72,7 +69,6 @@ const mutations = {
     state.user.selectedTeamLogo = response?.data?.data?.user?.selectedTeamLogo;
   },
   setUserAndTokenLogIn(state, { response }) {
-    console.log(response);
     state.token = response?.data?.token;
     axios.defaults.headers.common["authorization"] = `Bearer ${state.token}`;
     state.errors = response?.errors;
