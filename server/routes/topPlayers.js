@@ -1,10 +1,11 @@
 import express from "express";
 import axios from "../axios.js";
+import { checkAuth } from "../middleware/checkAuth.js";
 import requests from "../requests.js";
 
 const router = express.Router();
 
-router.get("/scorers", async (req, res) => {
+router.get("/scorers", checkAuth, async (req, res) => {
   const { data } = await axios.get(requests.fetchTopScorers);
   const { response } = data;
   const topScorersArr = response.map((obj) => {
@@ -19,7 +20,7 @@ router.get("/scorers", async (req, res) => {
   return res.json(topScorersArr);
 });
 
-router.get("/assists", async (req, res) => {
+router.get("/assists", checkAuth, async (req, res) => {
   const { data } = await axios.get(requests.fetchTopAssists);
   const { response } = data;
   const topAssitsArr = response.map((obj) => {

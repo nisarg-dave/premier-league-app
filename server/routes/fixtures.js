@@ -1,10 +1,11 @@
 import express from "express";
 import axios from "../axios.js";
 import requests from "../requests.js";
+import { checkAuth } from "../middleware/checkAuth.js";
 
 const router = express.Router();
 
-router.get("/fixtures", async (req, res) => {
+router.get("/fixtures", checkAuth, async (req, res) => {
   const { data } = await axios.get(requests.fetchFixtures);
   const { response } = data;
   const fixtures = response.map((obj) => {
