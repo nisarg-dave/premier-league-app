@@ -1,5 +1,12 @@
 # Premier League App
-A web app to display standings, fixtures, and live scores of the Premier League. Used RapidAPI’s football API, Vue.js and Vuetify. 
+A web app to display standings, fixtures, and live scores of the Premier League using RapidAPI’s football API.
+
+## Stack
+MEVN Stack:
+- Mongo
+- Express
+- Vue and Vuetify
+- Node
 
 ## Project setup
 
@@ -7,24 +14,8 @@ A web app to display standings, fixtures, and live scores of the Premier League.
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Client
+```npm run serve```
 
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-
-```
-npm run build
-```
-
-### Lints and fixes files
-
-```
-npm run lint
-```
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Server
+``` npm start```
