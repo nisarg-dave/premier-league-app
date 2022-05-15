@@ -3,6 +3,7 @@ import { body, validationResult } from "express-validator";
 import bcrypt from "bcryptjs";
 import User from "../models/user.js";
 import JWT from "jsonwebtoken";
+import { checkAuth } from "../middleware/checkAuth.js";
 const router = express.Router();
 
 router.post(
@@ -144,7 +145,7 @@ router.post("/login", async (req, res) => {
   });
 });
 
-router.post("/selectTeam", async (req, res) => {
+router.post("/selectTeam", checkAuth, async (req, res) => {
   const { username, selectedTeam, selectedTeamLogo } = req.body;
   const user = await User.findOne({ username });
   await User.findByIdAndUpdate(user._id, {

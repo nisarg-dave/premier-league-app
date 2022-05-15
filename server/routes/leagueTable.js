@@ -1,10 +1,11 @@
 import express from "express";
 import axios from "../axios.js";
+import { checkAuth } from "../middleware/checkAuth.js";
 import requests from "../requests.js";
 
 const router = express.Router();
 
-router.get("/standings", async (req, res) => {
+router.get("/standings", checkAuth, async (req, res) => {
   const { data } = await axios.get(requests.fetchLeagueTable);
   const { response } = data;
   const { standings } = response[0].league;
