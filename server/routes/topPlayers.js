@@ -1,5 +1,4 @@
 import express from "express";
-import { check } from "express-validator";
 import axios from "../axios.js";
 import { checkAuth } from "../middleware/checkAuth.js";
 import requests from "../requests.js";
