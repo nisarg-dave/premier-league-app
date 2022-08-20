@@ -9,8 +9,8 @@
                 <v-form>
                   <div class="d-flex justify-center">
                     <v-img
-                      src="https://www.iradio.ie/wp-content/uploads/2018/05/premier-league-logo-2017-blue-newcastle-united-nufc-bw-650x400.jpg"
-                      max-width="231"
+                      src="https://media.api-sports.io/football/leagues/39.png"
+                      max-width="120"
                     />
                   </div>
                   <h1 class="text-center">The Prem</h1>

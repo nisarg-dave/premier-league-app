@@ -88,14 +88,14 @@ export default {
 .Villa-Side {
   background-color: #fee505 !important;
 }
+.Bournemouth-Side {
+  background-color: #b50e12 !important;
+}
 .Brighton-Side {
   background-color: #fdb913 !important;
 }
 .Brentford-Side {
   background-color: #ffffff !important;
-}
-.Burnley-Side {
-  background-color: #fff30d !important;
 }
 .Chelsea-Side {
   background-color: #ffffff !important;
@@ -104,6 +104,12 @@ export default {
   background-color: #c4122e !important;
 }
 .Everton-Side {
+  background-color: #ffffff !important;
+}
+.Forest-Side {
+  background-color: #ffffff !important;
+}
+.Fulham-Side {
   background-color: #ffffff !important;
 }
 .Leicester-Side {
@@ -124,17 +130,11 @@ export default {
 .Newcastle-Side {
   background-color: #ffffff !important;
 }
-.Norwich-Side {
-  background-color: #fff200 !important;
-}
 .Southampton-Side {
   background-color: #ffffff !important;
 }
 .Tottenham-Side {
   background-color: #ffffff !important;
-}
-.Watford-Side {
-  background-color: #ed2127 !important;
 }
 .Hammers-Side {
   background-color: #f8d742 !important;
