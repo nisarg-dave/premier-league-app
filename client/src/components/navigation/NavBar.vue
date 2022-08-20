@@ -96,14 +96,14 @@ export default {
 .Villa-Nav {
   background-color: #670e36 !important;
 }
+.Bournemouth-Nav {
+  background-color: #b50e12 !important;
+}
 .Brighton-Nav {
   background-color: #fdb913 !important;
 }
 .Brentford-Nav {
   background-color: #ffffff !important;
-}
-.Burnley-Nav {
-  background-color: #97d9f6 !important;
 }
 .Chelsea-Nav {
   background-color: #ffffff !important;
@@ -113,6 +113,12 @@ export default {
 }
 .Everton-Nav {
   background-color: #ffffff !important;
+}
+.Forest-Nav {
+  background-color: #ffffff !important;
+}
+.Fulham-Nav {
+  background-color: #cc0000 !important;
 }
 .Leicester-Nav {
   background-color: #ffffff !important;
@@ -132,17 +138,11 @@ export default {
 .Newcastle-Nav {
   background-color: #ffffff !important;
 }
-.Norwich-Nav {
-  background-color: #fff200 !important;
-}
 .Southampton-Nav {
   background-color: #22b24c !important;
 }
 .Tottenham-Nav {
   background-color: #ffffff !important;
-}
-.Watford-Nav {
-  background-color: #fbee23 !important;
 }
 .Hammers-Nav {
   background-color: #2dafe5 !important;

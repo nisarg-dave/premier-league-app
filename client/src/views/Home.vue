@@ -16,7 +16,7 @@
       v-if="getSelectedTeam !== null"
       class="d-flex flex-column align-center"
     >
-      <h2 class="white--text mt-10">More to come...</h2>
+      <h2 class="white--text mt-10">Welcome to The Prem</h2>
     </div>
     <div v-if="getSelectedTeam !== null" class="d-flex flex-row-reverse">
       <v-btn :class="`${getSelectedTeam}-Btn`" @click="changeTeam()"
@@ -55,6 +55,8 @@ export default {
         return "Palace";
       } else if (team == "West Ham") {
         return "Hammers";
+      } else if (team == "Nottingham Forest") {
+        return "Forest";
       } else {
         return team;
       }
@@ -82,6 +84,10 @@ export default {
         );
       } else if (val === "Hammers") {
         found = this.getTeams.find((team) => team.teamName === "West Ham");
+      } else if (val === "Forest") {
+        found = this.getTeams.find(
+          (team) => team.teamName === "Nottingham Forest"
+        );
       } else {
         found = this.getTeams.find((team) => team.teamName === val);
       }
@@ -106,14 +112,14 @@ export default {
 .Villa-Btn {
   background-color: #670e36 !important;
 }
+.Bournemouth-Btn {
+  background-color: #b50e12 !important;
+}
 .Brighton-Btn {
   background-color: #fdb913 !important;
 }
 .Brentford-Btn {
   background-color: #ffffff !important;
-}
-.Burnley-Btn {
-  background-color: #97d9f6 !important;
 }
 .Chelsea-Btn {
   background-color: #ffffff !important;
@@ -123,6 +129,12 @@ export default {
 }
 .Everton-Btn {
   background-color: #ffffff !important;
+}
+.Forest-Btn {
+  background-color: #ffffff !important;
+}
+.Fulham-Btn {
+  background-color: #cc0000 !important;
 }
 .Leicester-Btn {
   background-color: #ffffff !important;
@@ -142,17 +154,11 @@ export default {
 .Newcastle-Btn {
   background-color: #ffffff !important;
 }
-.Norwich-Btn {
-  background-color: #fff200 !important;
-}
 .Southampton-Btn {
   background-color: #22b24c !important;
 }
 .Tottenham-Btn {
   background-color: #ffffff !important;
-}
-.Watford-Btn {
-  background-color: #fbee23 !important;
 }
 .Hammers-Btn {
   background-color: #2dafe5 !important;
