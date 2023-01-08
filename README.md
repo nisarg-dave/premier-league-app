@@ -19,9 +19,7 @@ Make sure to have Docker and Docker Compose installed on your system
 
 ## Project setup
 
-```
-npm install
-```
+`npm install`
 
 ### Client
 
