@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: prem_app_client
+    env_file:
+      - ./client/.env
+    environment:
+      - NODE_OPTIONS=--openssl-legacy-provider
+    ports:
+      - 8080:8080
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: prem_app_server
+    env_file:
+      - ./server/.env
+    ports:
+      - 3000:3000
