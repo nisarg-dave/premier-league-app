@@ -11,6 +11,8 @@ services:
       - NODE_OPTIONS=--openssl-legacy-provider
     ports:
       - 8080:8080
+    volumes:
+      - ./client:/app
   server:
     build:
       context: ./server
@@ -20,3 +22,5 @@ services:
       - ./server/.env
     ports:
       - 3000:3000
+    volumes:
+      - ./server:/app
