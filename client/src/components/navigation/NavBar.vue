@@ -60,94 +60,109 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from "vuex";
-export default {
-  props: {
-    value: Boolean,
-  },
-  name: "NavBar",
-  methods: {
-    ...mapMutations(["logout", "clearStore"]),
-    handleLogout() {
-      this.clearStore();
-      this.logout();
+  import { mapGetters, mapMutations } from "vuex";
+  export default {
+    props: {
+      value: Boolean,
     },
-  },
-  computed: {
-    ...mapGetters([
-      "getSelectedTeam",
-      "getTeams",
-      "getSelectedTeamLogo",
-      "getUser",
-    ]),
-  },
-};
+    name: "NavBar",
+    methods: {
+      ...mapMutations(["logout", "clearStore"]),
+      handleLogout() {
+        this.clearStore();
+        this.logout();
+      },
+    },
+    computed: {
+      ...mapGetters([
+        "getSelectedTeam",
+        "getTeams",
+        "getSelectedTeamLogo",
+        "getUser",
+      ]),
+    },
+  };
 </script>
 
 <style lang="scss" scoped>
-.title-wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-.Arsenal-Nav {
-  background-color: #ffffff !important;
-}
-.Villa-Nav {
-  background-color: #670e36 !important;
-}
-.Bournemouth-Nav {
-  background-color: #b50e12 !important;
-}
-.Brighton-Nav {
-  background-color: #fdb913 !important;
-}
-.Brentford-Nav {
-  background-color: #ffffff !important;
-}
-.Chelsea-Nav {
-  background-color: #ffffff !important;
-}
-.Palace-Nav {
-  background-color: #c4122e !important;
-}
-.Everton-Nav {
-  background-color: #ffffff !important;
-}
-.Forest-Nav {
-  background-color: #ffffff !important;
-}
-.Fulham-Nav {
-  background-color: #cc0000 !important;
-}
-.Leicester-Nav {
-  background-color: #ffffff !important;
-}
-.Liverpool-Nav {
-  background-color: #d00027 !important;
-}
-.Leeds-Nav {
-  background-color: #ffcd00 !important;
-}
-.City-Nav {
-  background-color: #ffffff !important;
-}
-.United-Nav {
-  background-color: #ffe500 !important;
-}
-.Newcastle-Nav {
-  background-color: #ffffff !important;
-}
-.Southampton-Nav {
-  background-color: #22b24c !important;
-}
-.Tottenham-Nav {
-  background-color: #ffffff !important;
-}
-.Hammers-Nav {
-  background-color: #2dafe5 !important;
-}
-.Wolves-Nav {
-  background-color: #fdb913 !important;
-}
+  .title-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .Arsenal-Nav {
+    background-color: #ffffff !important;
+  }
+  .Villa-Nav {
+    background-color: #670e36 !important;
+  }
+  .Bournemouth-Nav {
+    background-color: #b50e12 !important;
+  }
+  .Brighton-Nav {
+    background-color: #fdb913 !important;
+  }
+  .Brentford-Nav {
+    background-color: #ffffff !important;
+  }
+  .Burnley-Nav {
+    background-color: #97d9f6 !important;
+  }
+  .Chelsea-Nav {
+    background-color: #ffffff !important;
+  }
+  .Palace-Nav {
+    background-color: #c4122e !important;
+  }
+  .Everton-Nav {
+    background-color: #ffffff !important;
+  }
+  .Forest-Nav {
+    background-color: #ffffff !important;
+  }
+  .Fulham-Nav {
+    background-color: #cc0000 !important;
+  }
+  .Leicester-Nav {
+    background-color: #ffffff !important;
+  }
+  .Liverpool-Nav {
+    background-color: #d00027 !important;
+  }
+  .Leeds-Nav {
+    background-color: #ffcd00 !important;
+  }
+  .Luton-Nav {
+    background-color: #f78f1e !important;
+  }
+  .City-Nav {
+    background-color: #ffffff !important;
+  }
+  .United-Nav {
+    background-color: #ffe500 !important;
+  }
+  .Newcastle-Nav {
+    background-color: #ffffff !important;
+  }
+  .Norwich-Nav {
+    background-color: #fff200 !important;
+  }
+  .Sheffield-Nav {
+    background-color: #ee2737 !important;
+  }
+  .Southampton-Nav {
+    background-color: #22b24c !important;
+  }
+  .Tottenham-Nav {
+    background-color: #ffffff !important;
+  }
+  .Watford-Nav {
+    background-color: #fbee23 !important;
+  }
+  .Hammers-Nav {
+    background-color: #2dafe5 !important;
+  }
+  .Wolves-Nav {
+    background-color: #fdb913 !important;
+  }
 </style>
