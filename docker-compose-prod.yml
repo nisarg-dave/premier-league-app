@@ -11,8 +11,6 @@ services:
       - ./client/.env
     ports:
       - 8000:3000
-    environment:
-      - NODE_OPTIONS=--openssl-legacy-provider
   server:
     build:
       context: ./server

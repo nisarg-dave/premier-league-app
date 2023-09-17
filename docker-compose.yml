@@ -8,8 +8,6 @@ services:
     container_name: prem_app_client
     env_file:
       - ./client/.env
-    environment:
-      - NODE_OPTIONS=--openssl-legacy-provider
     ports:
       - 8080:8080
     volumes:
