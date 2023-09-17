@@ -1,10 +1,13 @@
 import axios from "axios";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const instance = axios.create({
-  baseURL: "https://v3.football.api-sports.io",
+  baseURL: process.env.RAPIDAPI_BASE_URL,
   headers: {
-    "x-rapidapi-host": "v3.football.api-sports.io",
-    "x-rapidapi-key": "cdb61658351d82c1a1a0764a715b7f7c",
+    "x-rapidapi-host": process.env.RAPIDAPI_HOST,
+    "x-rapidapi-key": process.env.RAPIDAPI_KEY,
   },
 });
 

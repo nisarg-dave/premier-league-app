@@ -85,77 +85,78 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
-export default {
-  name: "Login",
-  data() {
-    return {
-      showPassword: false,
-      checkbox: false,
-      userName: "",
-      email: "",
-      password: "",
-      userNameRules: [
-        (v) => !!v || "Name is required",
-        (v) =>
-          (v && v.length <= 15) || "User Name must be less than 15 characters",
-      ],
-      emailRules: [
-        (v) => !!v || "E-mail is required",
-        (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
-      ],
-      passwordRules: [
-        (v) => !!v || "Password is required",
-        (v) =>
-          (v && v.length <= 15) || "Password must be less than 15 characters",
-      ],
-    };
-  },
-  methods: {
-    ...mapActions(["signUp", "logIn"]),
-    clear() {
-      this.userName = "";
-      this.email = "";
-      this.password = "";
+  import { mapActions, mapGetters } from "vuex";
+  export default {
+    name: "Login",
+    data() {
+      return {
+        showPassword: false,
+        checkbox: false,
+        userName: "",
+        email: "",
+        password: "",
+        userNameRules: [
+          (v) => !!v || "Name is required",
+          (v) =>
+            (v && v.length <= 15) ||
+            "User Name must be less than 15 characters",
+        ],
+        emailRules: [
+          (v) => !!v || "E-mail is required",
+          (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
+        ],
+        passwordRules: [
+          (v) => !!v || "Password is required",
+          (v) =>
+            (v && v.length <= 15) || "Password must be less than 15 characters",
+        ],
+      };
     },
-    async handleSubmit() {
-      // Sign Up
-      if (this.checkbox) {
-        const user = {
-          userName: this.userName,
-          email: this.email,
-          password: this.password,
-        };
-        await this.signUp(user);
-        if (this.getAuthErrors.length > 0) {
-          alert(this.getAuthErrors[0].msg);
-        } else {
-          this.$router.push("/");
+    methods: {
+      ...mapActions(["signUp", "logIn"]),
+      clear() {
+        this.userName = "";
+        this.email = "";
+        this.password = "";
+      },
+      async handleSubmit() {
+        // Sign Up
+        if (this.checkbox) {
+          const user = {
+            userName: this.userName,
+            email: this.email,
+            password: this.password,
+          };
+          await this.signUp(user);
+          if (this.getAuthErrors.length > 0) {
+            alert(this.getAuthErrors[0].msg);
+          } else {
+            this.$router.push("/");
+          }
         }
-      }
-      // Else log in
-      else {
-        const user = {
-          userName: this.userName,
-          password: this.password,
-        };
-        await this.logIn(user);
-        if (this.getAuthErrors.length > 0) {
-          alert(this.getAuthErrors[0].msg);
-        } else {
-          this.$router.push("/");
+        // Else log in
+        else {
+          const user = {
+            userName: this.userName,
+            password: this.password,
+          };
+          await this.logIn(user);
+          if (this.getAuthErrors.length > 0) {
+            alert(this.getAuthErrors[0].msg);
+          } else {
+            this.$router.push("/");
+          }
         }
-      }
+      },
     },
-  },
-  computed: {
-    ...mapGetters(["getAuthErrors"]),
-  },
-};
+    computed: {
+      ...mapGetters(["getAuthErrors"]),
+    },
+  };
 </script>
 
 <style lang="scss" scoped>
-.sheet-colour {
-  background: linear-gradient(45deg, #e90052 50%, #38003c 50%);
-}
+  .sheet-colour {
+    background: linear-gradient(45deg, #e90052 50%, #38003c 50%);
+  }
 </style>
