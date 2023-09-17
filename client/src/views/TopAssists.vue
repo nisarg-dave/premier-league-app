@@ -6,21 +6,21 @@
 </template>
 
 <script>
-import TopPlayersTable from "../components/tables/TopPlayersTable.vue";
-import { mapActions } from "vuex";
+  import TopPlayersTable from "../components/tables/TopPlayersTable.vue";
+  import { mapActions } from "vuex";
 
-export default {
-  name: "TopAssists",
-  components: {
-    TopPlayersTable,
-  },
-  methods: {
-    ...mapActions(["fetchTopAssists"]),
-  },
-  async created() {
-    await this.fetchTopAssists();
-  },
-};
+  export default {
+    name: "TopAssists",
+    components: {
+      TopPlayersTable,
+    },
+    methods: {
+      ...mapActions(["fetchTopAssists"]),
+    },
+    async created() {
+      await this.fetchTopAssists();
+    },
+  };
 </script>
 
 <style lang="scss" scoped></style>

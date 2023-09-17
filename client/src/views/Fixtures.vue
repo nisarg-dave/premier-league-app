@@ -17,23 +17,23 @@
 </template>
 
 <script>
-import FixtureCard from "../components/fixtures/FixtureCard.vue";
-import { mapGetters, mapActions } from "vuex";
-export default {
-  name: "Fixtures",
-  components: {
-    FixtureCard,
-  },
-  methods: {
-    ...mapActions(["fetchFixtures"]),
-  },
-  computed: {
-    ...mapGetters(["getFixtures"]),
-  },
-  async created() {
-    await this.fetchFixtures();
-  },
-};
+  import FixtureCard from "../components/fixtures/FixtureCard.vue";
+  import { mapGetters, mapActions } from "vuex";
+  export default {
+    name: "Fixtures",
+    components: {
+      FixtureCard,
+    },
+    methods: {
+      ...mapActions(["fetchFixtures"]),
+    },
+    computed: {
+      ...mapGetters(["getFixtures"]),
+    },
+    async created() {
+      await this.fetchFixtures();
+    },
+  };
 </script>
 
 <style lang="scss" scoped></style>

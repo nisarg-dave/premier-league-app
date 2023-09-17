@@ -19,22 +19,22 @@
 </template>
 
 <script>
-export default {
-  name: "GameCard",
-  props: {
-    fixture: Array,
-  },
-  computed: {
-    date() {
-      const dt = new Date(this.fixture[0].date);
-      return dt.toDateString(dt);
+  export default {
+    name: "GameCard",
+    props: {
+      fixture: Array,
     },
-  },
-};
+    computed: {
+      date() {
+        const dt = new Date(this.fixture[0].date);
+        return dt.toDateString(dt);
+      },
+    },
+  };
 </script>
 
 <style lang="scss" scoped>
-.v-card {
-  width: 25rem;
-}
+  .v-card {
+    width: 25rem;
+  }
 </style>

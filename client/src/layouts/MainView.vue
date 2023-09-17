@@ -18,21 +18,19 @@
 </template>
 
 <script>
-import NavBar from "../components/navigation/NavBar.vue";
-import SideBar from "../components/navigation/SideBar.vue";
-import { mapGetters } from "vuex";
-export default {
-  name: "MainView",
-  components: { NavBar, SideBar },
-  data() {
-    return {
-      showSide: false,
-    };
-  },
-  computed: {
-    ...mapGetters(["getSelectedTeam"]),
-  },
-};
+  import NavBar from "../components/navigation/NavBar.vue";
+  import SideBar from "../components/navigation/SideBar.vue";
+  import { mapGetters } from "vuex";
+  export default {
+    name: "MainView",
+    components: { NavBar, SideBar },
+    data() {
+      return {
+        showSide: false,
+      };
+    },
+    computed: {
+      ...mapGetters(["getSelectedTeam"]),
+    },
+  };
 </script>
-
-
