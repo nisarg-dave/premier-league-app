@@ -6,20 +6,20 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
-import TopPlayersTable from "../components/tables/TopPlayersTable.vue";
-export default {
-  name: "TopScorers",
-  components: {
-    TopPlayersTable,
-  },
-  methods: {
-    ...mapActions(["fetchTopScorers"]),
-  },
-  async created() {
-    await this.fetchTopScorers();
-  },
-};
+  import { mapActions } from "vuex";
+  import TopPlayersTable from "../components/tables/TopPlayersTable.vue";
+  export default {
+    name: "TopScorers",
+    components: {
+      TopPlayersTable,
+    },
+    methods: {
+      ...mapActions(["fetchTopScorers"]),
+    },
+    async created() {
+      await this.fetchTopScorers();
+    },
+  };
 </script>
 
 <style lang="scss" scoped></style>

@@ -6,22 +6,22 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+  import { mapActions } from "vuex";
 
-export default {
-  name: "Standings",
-  components: {
-    LeagueTable: () => ({
-      component: import("../components/tables/LeagueTable.vue"),
-    }),
-  },
-  methods: {
-    ...mapActions(["fetchLeagueTable"]),
-  },
-  async created() {
-    await this.fetchLeagueTable();
-  },
-};
+  export default {
+    name: "Standings",
+    components: {
+      LeagueTable: () => ({
+        component: import("../components/tables/LeagueTable.vue"),
+      }),
+    },
+    methods: {
+      ...mapActions(["fetchLeagueTable"]),
+    },
+    async created() {
+      await this.fetchLeagueTable();
+    },
+  };
 </script>
 
 <style lang="scss" scoped></style>

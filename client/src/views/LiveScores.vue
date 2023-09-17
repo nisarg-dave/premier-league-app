@@ -22,23 +22,23 @@
 </template>
 
 <script>
-import FixtureCard from "../components/fixtures/FixtureCard.vue";
-import { mapGetters, mapActions } from "vuex";
-export default {
-  name: "LiveScores",
-  components: {
-    FixtureCard,
-  },
-  methods: {
-    ...mapActions(["fetchLiveScores"]),
-  },
-  computed: {
-    ...mapGetters(["getLiveScores"]),
-  },
-  async created() {
-    await this.fetchLiveScores();
-  },
-};
+  import FixtureCard from "../components/fixtures/FixtureCard.vue";
+  import { mapGetters, mapActions } from "vuex";
+  export default {
+    name: "LiveScores",
+    components: {
+      FixtureCard,
+    },
+    methods: {
+      ...mapActions(["fetchLiveScores"]),
+    },
+    computed: {
+      ...mapGetters(["getLiveScores"]),
+    },
+    async created() {
+      await this.fetchLiveScores();
+    },
+  };
 </script>
 
 <style lang="scss" scoped></style>

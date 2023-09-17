@@ -37,13 +37,13 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-export default {
-  name: "LeagueTable",
-  computed: {
-    ...mapGetters(["getLeagueTable"]),
-  },
-};
+  import { mapGetters } from "vuex";
+  export default {
+    name: "LeagueTable",
+    computed: {
+      ...mapGetters(["getLeagueTable"]),
+    },
+  };
 </script>
 
 <style lang="scss" scoped></style>

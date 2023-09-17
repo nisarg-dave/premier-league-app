@@ -4,13 +4,14 @@ on:
       - main
     # Sequence of patterns matched against refs/tags
     tags:
-      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+      - "v*" # Push events to matching v*, i.e. v1.0, v20.15.10
 
 name: Create Release
 
 jobs:
   build:
     name: Create Release
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -21,9 +22,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
         with:
-          tag_name: v0.2.0
-          release_name: v0.2.0
+          tag_name: v0.3.0
+          release_name: v0.3.0
           body: |
-            Updated for the 2022/23 season. 
+            Dockerised the application for development and production and used Nginx as a reverse proxy.
           draft: false
           prerelease: false

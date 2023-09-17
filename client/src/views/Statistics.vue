@@ -25,46 +25,46 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
-import GameCard from "../components/stats/GameCard.vue";
-import LineUpsCard from "../components/stats/LineupsCard.vue";
-import GameStatistics from "../components/stats/GameStatistics.vue";
-export default {
-  name: "Statistics",
-  computed: {
-    ...mapGetters(["getStats"]),
-  },
-  components: {
-    GameCard,
-    LineUpsCard,
-    GameStatistics,
-  },
-  methods: {
-    ...mapActions(["fetchStats"]),
-  },
-  async created() {
-    const { id } = this.$route.params;
-    await this.fetchStats(id);
-  },
-};
+  import { mapGetters, mapActions } from "vuex";
+  import GameCard from "../components/stats/GameCard.vue";
+  import LineUpsCard from "../components/stats/LineupsCard.vue";
+  import GameStatistics from "../components/stats/GameStatistics.vue";
+  export default {
+    name: "Statistics",
+    computed: {
+      ...mapGetters(["getStats"]),
+    },
+    components: {
+      GameCard,
+      LineUpsCard,
+      GameStatistics,
+    },
+    methods: {
+      ...mapActions(["fetchStats"]),
+    },
+    async created() {
+      const { id } = this.$route.params;
+      await this.fetchStats(id);
+    },
+  };
 </script>
 
 <style lang="scss" scoped>
-.goalscorers-goals-home {
-  width: 100%;
-  height: 100%;
-  display: flex;
-}
-.goalscorers-goals-away {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: flex-end;
-}
-.goalscorers {
-  width: 23rem;
-  display: flex;
-  font-weight: 700;
-  font-size: 14px;
-}
+  .goalscorers-goals-home {
+    width: 100%;
+    height: 100%;
+    display: flex;
+  }
+  .goalscorers-goals-away {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .goalscorers {
+    width: 23rem;
+    display: flex;
+    font-weight: 700;
+    font-size: 14px;
+  }
 </style>

@@ -34,23 +34,23 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-export default {
-  name: "TopPlayersTable",
-  props: {
-    forAssists: Boolean,
-  },
-  computed: {
-    ...mapGetters(["getTopScorers", "getTopAssists"]),
-    topPlayersData() {
-      return this.forAssists ? this.getTopAssists : this.getTopScorers;
+  import { mapGetters } from "vuex";
+  export default {
+    name: "TopPlayersTable",
+    props: {
+      forAssists: Boolean,
     },
-  },
-};
+    computed: {
+      ...mapGetters(["getTopScorers", "getTopAssists"]),
+      topPlayersData() {
+        return this.forAssists ? this.getTopAssists : this.getTopScorers;
+      },
+    },
+  };
 </script>
 
 <style lang="scss" scoped>
-.table-row {
-  pointer-events: none;
-}
+  .table-row {
+    pointer-events: none;
+  }
 </style>

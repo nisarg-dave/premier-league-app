@@ -30,38 +30,38 @@
 </template>
 
 <script>
-export default {
-  name: "LineUpsCard",
-  computed: {
-    startXIs() {
-      const lineUpArr = [];
-      for (let i = 0; i < this.lineUps?.homeTeamXI?.length; i++) {
-        lineUpArr.push({
-          homePlayerName: this.lineUps?.homeTeamXI[i],
-          awayPlayerName: this.lineUps?.awayTeamXI[i],
-        });
-      }
-      return lineUpArr;
+  export default {
+    name: "LineUpsCard",
+    computed: {
+      startXIs() {
+        const lineUpArr = [];
+        for (let i = 0; i < this.lineUps?.homeTeamXI?.length; i++) {
+          lineUpArr.push({
+            homePlayerName: this.lineUps?.homeTeamXI[i],
+            awayPlayerName: this.lineUps?.awayTeamXI[i],
+          });
+        }
+        return lineUpArr;
+      },
+      subs() {
+        const subsArr = [];
+        for (let i = 0; i < this.lineUps?.homeTeamSubs?.length; i++) {
+          subsArr.push({
+            homePlayerName: this.lineUps?.homeTeamSubs[i],
+            awayPlayerName: this.lineUps?.awayTeamSubs[i],
+          });
+        }
+        return subsArr;
+      },
     },
-    subs() {
-      const subsArr = [];
-      for (let i = 0; i < this.lineUps?.homeTeamSubs?.length; i++) {
-        subsArr.push({
-          homePlayerName: this.lineUps?.homeTeamSubs[i],
-          awayPlayerName: this.lineUps?.awayTeamSubs[i],
-        });
-      }
-      return subsArr;
+    props: {
+      lineUps: Object,
     },
-  },
-  props: {
-    lineUps: Object,
-  },
-};
+  };
 </script>
 
 <style scoped>
-.v-card {
-  width: 25rem;
-}
+  .v-card {
+    width: 25rem;
+  }
 </style>

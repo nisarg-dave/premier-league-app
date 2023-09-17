@@ -60,86 +60,101 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-export default {
-  props: {
-    value: Boolean,
-  },
-  name: "SideBar",
-  computed: {
-    ...mapGetters(["getSelectedTeam", "getTeams", "getSelectedTeamLogo"]),
+  import { mapGetters } from "vuex";
+  export default {
+    props: {
+      value: Boolean,
+    },
+    name: "SideBar",
+    computed: {
+      ...mapGetters(["getSelectedTeam", "getTeams", "getSelectedTeamLogo"]),
 
-    showSideBar: {
-      get() {
-        return this.value;
-      },
-      set(value) {
-        this.$emit("input", value);
+      showSideBar: {
+        get() {
+          return this.value;
+        },
+        set(value) {
+          this.$emit("input", value);
+        },
       },
     },
-  },
-};
+  };
 </script>
 
 <style scoped>
-.Arsenal-Side {
-  background-color: #ffffff !important;
-}
-.Villa-Side {
-  background-color: #fee505 !important;
-}
-.Bournemouth-Side {
-  background-color: #b50e12 !important;
-}
-.Brighton-Side {
-  background-color: #fdb913 !important;
-}
-.Brentford-Side {
-  background-color: #ffffff !important;
-}
-.Chelsea-Side {
-  background-color: #ffffff !important;
-}
-.Palace-Side {
-  background-color: #c4122e !important;
-}
-.Everton-Side {
-  background-color: #ffffff !important;
-}
-.Forest-Side {
-  background-color: #ffffff !important;
-}
-.Fulham-Side {
-  background-color: #ffffff !important;
-}
-.Leicester-Side {
-  background-color: #ffffff !important;
-}
-.Liverpool-Side {
-  background-color: #d00027 !important;
-}
-.Leeds-Side {
-  background-color: #ffffff !important;
-}
-.City-Side {
-  background-color: #ffffff !important;
-}
-.United-Side {
-  background-color: #ffe500 !important;
-}
-.Newcastle-Side {
-  background-color: #ffffff !important;
-}
-.Southampton-Side {
-  background-color: #ffffff !important;
-}
-.Tottenham-Side {
-  background-color: #ffffff !important;
-}
-.Hammers-Side {
-  background-color: #f8d742 !important;
-}
-.Wolves-Side {
-  background-color: #fdb913 !important;
-}
+  .Arsenal-Side {
+    background-color: #ffffff !important;
+  }
+  .Villa-Side {
+    background-color: #fee505 !important;
+  }
+  .Bournemouth-Side {
+    background-color: #b50e12 !important;
+  }
+  .Brighton-Side {
+    background-color: #fdb913 !important;
+  }
+  .Brentford-Side {
+    background-color: #ffffff !important;
+  }
+  .Burnley-Side {
+    background-color: #fff30d !important;
+  }
+  .Chelsea-Side {
+    background-color: #ffffff !important;
+  }
+  .Palace-Side {
+    background-color: #c4122e !important;
+  }
+  .Everton-Side {
+    background-color: #ffffff !important;
+  }
+  .Forest-Side {
+    background-color: #ffffff !important;
+  }
+  .Fulham-Side {
+    background-color: #ffffff !important;
+  }
+  .Leicester-Side {
+    background-color: #ffffff !important;
+  }
+  .Liverpool-Side {
+    background-color: #d00027 !important;
+  }
+  .Leeds-Side {
+    background-color: #ffffff !important;
+  }
+  .Luton-Nav {
+    background-color: #002d62 !important;
+  }
+  .City-Side {
+    background-color: #ffffff !important;
+  }
+  .United-Side {
+    background-color: #ffe500 !important;
+  }
+  .Newcastle-Side {
+    background-color: #ffffff !important;
+  }
+  .Norwich-Side {
+    background-color: #fff200 !important;
+  }
+  .Sheffield-Nav {
+    background-color: #ffec2d !important;
+  }
+  .Southampton-Side {
+    background-color: #ffffff !important;
+  }
+  .Tottenham-Side {
+    background-color: #ffffff !important;
+  }
+  .Hammers-Side {
+    background-color: #f8d742 !important;
+  }
+  .Watford-Side {
+    background-color: #ed2127 !important;
+  }
+  .Wolves-Side {
+    background-color: #fdb913 !important;
+  }
 </style>

@@ -101,16 +101,16 @@
 </template>
 
 <script>
-export default {
-  name: "GameStatistics",
-  props: {
-    gameStats: Object,
-  },
-};
+  export default {
+    name: "GameStatistics",
+    props: {
+      gameStats: Object,
+    },
+  };
 </script>
 
 <style lang="scss" scoped>
-.v-card {
-  width: 25rem;
-}
+  .v-card {
+    width: 25rem;
+  }
 </style>
