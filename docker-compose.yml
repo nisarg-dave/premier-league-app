@@ -4,6 +4,7 @@ services:
     build:
       context: ./client
       dockerfile: Dockerfile
+      target: development
     container_name: prem_app_client
     env_file:
       - ./client/.env
