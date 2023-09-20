@@ -25,6 +25,6 @@ jobs:
           tag_name: v0.3.0
           release_name: v0.3.0
           body: |
-            Dockerised the application for development and production and used Nginx as a reverse proxy.
+            Dockerised the application for development and production and used Nginx as a reverse proxy. The application is running on an EC2 instance on AWS.
           draft: false
           prerelease: false
