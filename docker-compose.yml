@@ -7,7 +7,7 @@ services:
       target: development
     container_name: prem_app_client
     env_file:
-      - ./client/.env
+      - ./client/.env.development
     ports:
       - 8080:8080
     volumes:
