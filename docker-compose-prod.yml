@@ -5,7 +5,7 @@ services:
       context: ./client
       dockerfile: Dockerfile
       target: production
-    container_name: prem_app_client_production
+    container_name: prem_app_client
     restart: unless-stopped
     env_file:
       - ./client/.env
@@ -13,7 +13,7 @@ services:
     build:
       context: ./server
       dockerfile: Dockerfile
-    container_name: prem_app_server_production
+    container_name: prem_app_server
     restart: unless-stopped
     env_file:
       - ./server/.env
@@ -21,7 +21,7 @@ services:
       - client
   nginx:
     image: nginx
-    container_name: prem_nginx_production
+    container_name: prem_nginx
     restart: unless-stopped
     ports:
       - 80:80
