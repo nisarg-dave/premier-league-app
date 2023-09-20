@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo "  "
 echo "======= Installing Vercel Serve package ======================================================="
 npm install -g serve
