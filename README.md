@@ -1,6 +1,6 @@
 # Premier League App
 
-A web app to display standings, fixtures, and live scores of the Premier League using RapidAPI’s football API. The application is running in Docker containers on an AWS EC2 instance.
+A web app to display standings, fixtures, and live scores of the Premier League using RapidAPI’s football API. The Vue frontend, Express backend server and Nginx reverse proxy are running in Docker containers on an AWS EC2 instance.
 
 ## Stack
 
